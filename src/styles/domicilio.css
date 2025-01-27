@@ -1,0 +1,382 @@
+body {
+    margin: 0px !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos para el navbar */
+.navbar {
+    background-color: #E50000;
+    /* Color rojo */
+    display: flex;
+    justify-content: space-between;
+    /* Espacio entre logo y enlaces */
+    align-items: center;
+    /* Centrado vertical */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.navbar .logo {
+    color: #FFFFFF;
+    /* Texto blanco */
+    font-weight: bold;
+    /* Negrita */
+    font-size: 1.5rem;
+    /* Tamaño del logo */
+    text-decoration: none;
+    /* Sin subrayado */
+}
+
+/* Estilos para los enlaces de navegación */
+.navbar .nav-links {
+    flex-grow: 1;
+    /* Para usar el espacio disponible */
+    display: flex;
+    justify-content: center;
+    /* Centra los enlaces */
+    gap: 90px;
+    /* Espaciado entre enlaces */
+}
+
+/* Enlaces en la barra de navegación */
+.navbar .nav-links a {
+    color: #FFFFFF;
+    /* Texto blanco */
+    font-weight: bold;
+    /* Negrita */
+    font-size: 35px;
+    /* Tamaño grande de texto para los enlaces */
+    text-decoration: none;
+    /* Sin subrayado */
+}
+
+/* Efecto hover para los enlaces */
+.navbar .nav-links a:hover {
+    color: #E50000;
+    /* Color de relleno rojo */
+    -webkit-text-stroke: 1px white;
+    /* Borde blanco */
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links a {
+        font-size: 24px;
+        /* Reduce el tamaño de los enlaces en pantallas pequeñas */
+    }
+
+    .navbar .nav-links {
+        gap: 30px;
+        /* Reduce el espacio entre enlaces */
+    }
+}
+
+footer {
+    background-color: #E50000;
+    color: white;
+    text-align: center;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-rail {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    height: 2rem;
+    margin-bottom: 20px;
+}
+
+.rail-content {
+    display: flex;
+    white-space: nowrap;
+    animation: slide 15s linear infinite;
+}
+
+.footer-rail p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 5px;
+    font-style: italic;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+}
+
+.contenedor-footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.texto-blanco {
+    color: white;
+}
+
+.texto-borde {
+    color: #E50000;
+    -webkit-text-stroke: 1px white;
+}
+
+@media (max-width: 768px) {
+    .contenedor-footer {
+        flex-direction: column;
+    }
+
+    .footer-rail p {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-between; /* Espacio entre menú y carrito */
+    align-items: flex-start; /* Alinea los elementos arriba */
+    padding: 25px;
+}
+
+.menu,
+.cesta {
+    background-color: #e0e0e0;
+    padding: 5%;
+    border-radius: 4px;
+    margin: 1%;
+}
+
+.menu {
+    width: 60%;
+    margin-left: 10%;
+    height: 600px;
+    overflow-y: auto;
+    /* Habilita el scroll vertical */
+}
+
+.menu::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho de la barra */
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color de la barra */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* Color al pasar el mouse */
+}
+
+.menu::-webkit-scrollbar-track {
+    background-color: #c0c0c0;
+    /* Fondo de la pista de desplazamiento */
+}
+
+.cesta {
+    width: 35%;
+    margin-right: 10%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    /* Organiza los elementos en columna */
+    justify-content: space-between;
+    /* Separa el contenido del botón de pagar */
+    overflow-y: auto; /* Scroll si el contenido excede */
+
+}
+
+h2 {
+    margin: 0 0 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c0c0c0;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: #b0b0b0;
+}
+
+.cesta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c0c0c0;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.cesta-item button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.cesta-item .quantity {
+    text-align: center;
+    width: 30px;
+    font-weight: bold;
+}
+
+.cesta-item span.price {
+    margin-left: 10px;
+    font-weight: bold;
+}
+.cantidad-control {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center; /* Alinea horizontalmente al centro */
+    gap: 10px; /* Espacio entre botones y número */
+}
+
+.cantidad-control button {
+    width: 30px; /* Ancho uniforme para los botones */
+    height: 30px; /* Altura uniforme */
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center; /* Centra el texto horizontalmente */
+    background-color: #e0e0e0;
+    border: 1px solid #aaa;
+    border-radius: 50%; /* Hace los botones circulares */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.cantidad-control button:hover {
+    background-color: #b0b0b0;
+}
+
+.pagar {
+    text-align: center;
+    margin-top: auto;
+    /* Empuja el botón al final */
+}
+
+.pagar button {
+    width: 100%;
+    padding: 10px;
+    background-color: #c0c0c0;
+    border: none;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagar button:hover {
+    background-color: #b0b0b0;
+}
+
+/* Ajustes para el menú hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Responsividad para el menú hamburguesa */
+  @media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+  
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(229, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 9;
+        box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+    }
+  
+    .nav-links.active {
+        transform: translateX(0);
+    }
+  
+    .nav-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px; /* Altura uniforme */
+        width: 100%; /* Ocupa todo el ancho */
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    .nav-links a:hover {
+        background-color: #fff;
+        color: #E50000;
+    }
+  
+    .nav-links a:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite & Grill</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/domicilio.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <!-- Logo --> 
+            <a href="../../index.html" class="logo">
+                <img src="../images/logo.png" alt="Logo" class="logo-img">
+            </a>
+            <!-- Botón de menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links">
+                <a href="carta.html">CARTA</a>
+                <a href="domicilio.html">A DOMICILIO</a>
+                <a href="reserva.html">RESERVAS</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="contenedor">
+        <div class="menu">
+            <h2>Entrantes</h2>
+            <div class="item" data-name="Alitas picantes" data-price="5.00">Alitas picantes <span>5.00 €</span></div>
+            <div class="item" data-name="Tequeños" data-price="4.50">Tequeños <span>4.50 €</span></div>
+            <div class="item" data-name="Aros de cebolla" data-price="3.50">Aros de cebolla <span>3.50 €</span></div>
+            <div class="item" data-name="Tiras de pollo" data-price="6.00">Tiras de pollo <span>6.00 €</span></div>
+
+            <h2>Hamburguesas</h2>
+            <div class="item" data-name="La Giralda" data-price="8.00">La Giralda <span>8.00 €</span></div>
+            <div class="item" data-name="Maestranza" data-price="9.00">Maestranza <span>9.00 €</span></div>
+            <div class="item" data-name="El Alcázar" data-price="10.00">El Alcázar <span>10.00 €</span></div>
+            <div class="item" data-name="Torre del oro" data-price="11.00">Torre del oro <span>11.00 €</span></div>
+            <div class="item" data-name="Archivo de Indias" data-price="12.00">Archivo de Indias <span>12.00 €</span></div>
+            <div class="item" data-name="Alameda" data-price="13.00">Alameda <span>13.00 €</span></div>
+
+            <h2>Ensaladas</h2>
+            <div class="item" data-name="Ensalada Mediterránea" data-price="4.50">Ensalada Mediterránea <span>4.50 €</span></div>
+            <div class="item" data-name="Ensalada César" data-price="5.50">Ensalada César <span>5.50 €</span></div>
+
+            <h2>Bebidas</h2>
+            <div class="item" data-name="Refrescos" data-price="2.50">Refrescos <span>2.50 €</span></div>
+            <div class="item" data-name="Mojitos" data-price="3.50">Mojitos <span>3.50 €</span></div>
+            <div class="item" data-name="Cerveza" data-price="3.00">Cerveza <span>3.00 €</span></div>
+            <div class="item" data-name="Margaritas" data-price="4.00">Margaritas <span>4.00 €</span></div> 
+
+            <h2>Postres</h2>
+            <div class="item" data-name="Tarta oreo" data-price="4.50">Tarta oreo <span>4.50 €</span></div>
+            <div class="item" data-name="Tarta galleta" data-price="4.50">Tarta galleta <span>4.50 €</span></div>
+            <div class="item" data-name="Tarta pistacho" data-price="4.50">Tarta pistacho <span>4.50 €</span></div>
+            <div class="item" data-name="Tarta chocolate" data-price="4.50">Tarta chocolate <span>4.50 €</span></div>
+            <div class="item" data-name="Tarta queso" data-price="4.50">Tarta queso <span>4.50 €</span></div>
+            <div class="item" data-name="Batidos" data-price="4.50">Batidos <span>4.50 €</span></div>
+        </div>
+
+        <div class="cesta">
+            <h2>Cesta</h2>
+            <div id="cesta-items">
+                <!-- Elementos añadidos dinámicamente -->
+            </div>
+            <div class="pagar">
+                <a href="pagar.html"><button id="pagar">Pagar (0.00 €)</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuItems = document.querySelectorAll('.menu .item');
+        const cestaItemsContainer = document.getElementById('cesta-items');
+        const pagarButton = document.getElementById('pagar');
+
+        let total = 0;
+        const cesta = {};
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const name = item.dataset.name;
+                const price = parseFloat(item.dataset.price);
+
+                if (cesta[name]) {
+                    cesta[name].quantity += 1;
+                    cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
+                } else {
+                    const cestaItem = document.createElement('div');
+                    cestaItem.className = 'cesta-item';
+                    cestaItem.innerHTML = `
+                        <span>${name}</span>
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                        <span class="price">${price.toFixed(2)} €</span>
+                        <button class="remove">✖</button>
+                    `;
+                    cesta[name] = { price, quantity: 1, element: cestaItem };
+
+                    cestaItem.querySelector('.increase').addEventListener('click', () => {
+                        cesta[name].quantity++;
+                        updateItem(name);
+                    });
+                    cestaItem.querySelector('.decrease').addEventListener('click', () => {
+                        if (cesta[name].quantity > 1) {
+                            cesta[name].quantity--;
+                            updateItem(name);
+                        } else {
+                            removeItem(name);
+                        }
+                    });
+                    cestaItem.querySelector('.remove').addEventListener('click', () => removeItem(name));
+                    cestaItemsContainer.appendChild(cestaItem);
+                }
+                total += price;
+                updateTotal();
+            });
+        });
+
+        function updateItem(name) {
+            cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
+            updateTotal();
+        }
+
+        function removeItem(name) {
+            total -= cesta[name].price * cesta[name].quantity;
+            cesta[name].element.remove();
+            delete cesta[name];
+            updateTotal();
+        }
+
+        function updateTotal() {
+            total = Object.values(cesta).reduce((sum, item) => sum + item.price * item.quantity, 0);
+            pagarButton.textContent = `Pagar (${total.toFixed(2)} €)`;
+            const precio = total;
+            localStorage.setItem("precioPagar", precio.toFixed(2));
+        }
+    </script>
+
+    <footer>
+        <!-- Animación Footer Rail -->
+        <div class="footer-rail">
+            <div class="rail-content">
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+            </div>
+            <div class="rail-content">
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+            </div>
+        </div>
+        <div class="contenedor-footer">
+            <p>Facebook | Twitter | Instagram</p>
+            <p>Contacto: info@biteandgrill.com</p>
+            <p>Bite & Grill 2023-2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Control del menú hamburguesa
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

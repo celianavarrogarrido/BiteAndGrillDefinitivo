@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite & Grill</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/carta.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <a href="../../index.html" class="logo">
+                <img src="../images/logo.png" alt="Logo" class="logo-img">
+            </a>
+            <!-- Botón de menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links">
+                <a href="carta.html">CARTA</a>
+                <a href="domicilio.html">A DOMICILIO</a>
+                <a href="reserva.html">RESERVAS</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="carta">
+        <div class="container">
+
+            <!-- Rueda con el eslogan -->
+            <div class="rueda-container">
+                <div class="rueda">
+                    <span class="eslogan">Nacidos para morder</span>
+                </div>
+            </div>
+
+            <!-- Fila 1: Dos columnas -->
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img class="card-img-top" src="../images/entrantes.jpg" alt="Entrantes">
+                        <div class="card-body">
+                            <a href="../other/entrantes.html">ENTRANTES</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img class="card-img-top" src="../images/hamburguesas.jpg" alt="Hamburguesas">
+                        <div class="card-body">
+                            <a href="../other/hamburguesas.html">HAMBURGUESAS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila 2: Dos columnas -->
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img class="card-img-top" src="../images/ensaladas.jpg" alt="Ensaladas">
+                        <div class="card-body">
+                            <a href="../other/ensaladas.html">ENSALADAS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img class="card-img-top" src="../images/bebidas.png" alt="Bebidas">
+                        <div class="card-body">
+                            <a href="../other/bebidas.html">BEBIDAS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila 3: Quinta tarjeta centrada -->
+            <div class="row">
+                <div class="col-12 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img class="card-img-top" src="../images/postres.jpg" alt="Postres">
+                        <div class="card-body">
+                            <a href="../other/postres.html">POSTRES</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <!-- Animación Footer Rail -->
+            <div class="footer-rail">
+                <div class="rail-content">
+                    <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                    <p class="texto-borde">NACIDOS PARA MORDER</p>
+                    <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                    <p class="texto-borde">NACIDOS PARA MORDER</p>
+                    <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                    <p class="texto-borde">NACIDOS PARA MORDER</p>
+                </div>
+                <div class="rail-content">
+                    <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                    <p class="texto-borde">NACIDOS PARA MORDER</p>
+                    <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                    <p class="texto-borde">NACIDOS PARA MORDER</p>
+                    <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                    <p class="texto-borde">NACIDOS PARA MORDER</p>
+                </div>
+            </div>
+            <div class="contenedor-footer">
+                <p>Facebook | Twitter | Instagram</p>
+                <p>Contacto: info@biteandgrill.com</p>
+                <p>Bite & Grill 2023-2024</p>
+            </div>
+        </footer>
+
+        <script>
+            // Control del menú hamburguesa
+            document.addEventListener("DOMContentLoaded", () => {
+                const menuToggle = document.querySelector(".menu-toggle");
+                const navLinks = document.querySelector(".nav-links");
+
+                menuToggle.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                });
+            });
+        </script>
+
+        <!-- Scripts de Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</body>
+
+</html>

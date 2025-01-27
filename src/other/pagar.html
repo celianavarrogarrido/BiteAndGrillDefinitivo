@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite & Grill</title>
+    <link rel="stylesheet" href="../styles/pagar.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <a  href="../../index.html" class="logo">
+                <img src="../images/logo.png" alt="Logo" class="logo-img">
+            </a>
+            
+            <!-- Enlaces de navegación -->
+            <div class="nav-links">
+                <a href="carta.html">CARTA</a>
+                <a href="domicilio.html">A DOMICILIO</a>
+                <a href="reserva.html">RESERVAS</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="pagar">
+        <div class="container">
+            <input type="text" placeholder="Nombre">
+            <input type="tel" placeholder="Teléfono">
+            <input type="text" placeholder="Dirección">
+            <a href="https://www.paypal.com/es/digital-wallet/ways-to-pay/checkout-with-paypal"><button>Pagar con PayPal (0.0 €)</button></a>
+        </div>
+    </div>
+    
+    <script>
+        const precio = localStorage.getItem("precioPagar");
+    
+        if (precio) {
+            const botonPagar = document.querySelector("button");
+            botonPagar.textContent = `Pagar con PayPal (${precio} €)`;
+        }
+    </script>
+
+    <footer>
+        <!-- Animación Footer Rail -->
+        <div class="footer-rail">
+            <div class="rail-content">
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+            </div>
+            <div class="rail-content">
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+            </div>
+        </div>
+        <div class="contenedor-footer">
+            <p>Facebook | Twitter | Instagram</p>
+            <p>Contacto: info@biteandgrill.com</p>
+            <p>Bite & Grill 2023-2024</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

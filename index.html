@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=description content="El mejor lugar para tus hamburguesas">
+    <title>Bite & Grill</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <a href="../../index.html" class="logo">
+                <img src="src/images/logo.png" alt="imagen del logo" class="logo-img">
+            </a>
+            <!-- Botón de menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links">
+                <a href="src/other/carta.html">CARTA</a>
+                <a href="src/other/domicilio.html">A DOMICILIO</a>
+                <a href="src/other/reserva.html">RESERVAS</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="src/video/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="overlay">
+        <div class="text-content">
+            <h1>Bienvenido a Bite & Grill</h1>
+            <h2>El mejor lugar para tus hamburguesas.</h2>
+        </div>
+        <img src="src/images/hamburguesa-inicio.png" alt="Burger" class="burger">
+    </div>
+
+
+    <footer>
+        <!-- Animación Footer Rail -->
+        <div class="footer-rail">
+            <div class="rail-content">
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                
+            </div>
+            <div class="rail-content">
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+                <h3 class="texto-blanco">NACIDOS PARA MORDER</h3>
+            </div>
+        </div>
+        <div class="contenedor-footer">
+            <p>Facebook | Twitter | Instagram</p>
+            <p>Contacto: info@biteandgrill.com</p>
+            <p>Bite & Grill 2023-2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Control del menú hamburguesa
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+    
+            menuToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

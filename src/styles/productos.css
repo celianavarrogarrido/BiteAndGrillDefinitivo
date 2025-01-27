@@ -1,0 +1,509 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilos para el navbar */
+.navbar {
+    background-color: #E50000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.navbar .logo {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+}
+
+.navbar .nav-links a {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 35px;
+    text-decoration: none;
+}
+
+.navbar .nav-links a:hover {
+    color: #E50000;
+    -webkit-text-stroke: 1px white;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links a {
+        font-size: 24px;
+        /* Reduce el tamaño de los enlaces en pantallas pequeñas */
+    }
+
+    .navbar .nav-links {
+        gap: 30px;
+        /* Reduce el espacio entre enlaces */
+    }
+}
+
+footer {
+    background-color: #E50000;
+    color: white;
+    text-align: center;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    margin-top: 0;
+    width: 100%;
+}
+
+.footer-rail {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    height: 2rem;
+    margin-bottom: 20px;
+}
+
+.rail-content {
+    display: flex;
+    white-space: nowrap;
+    animation: slide 15s linear infinite;
+}
+
+.footer-rail p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 5px;
+    font-style: italic;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+}
+
+.contenedor-footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.texto-blanco {
+    color: white;
+}
+
+.texto-borde {
+    color: #E50000;
+    -webkit-text-stroke: 1px white;
+}
+
+@media (max-width: 768px) {
+    .contenedor-footer {
+        flex-direction: column;
+    }
+
+    .footer-rail p {
+        font-size: 1rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(229, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* Distribuye uniformemente las opciones */
+        align-items: center;
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 9;
+        box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        flex: none;
+        /* Elimina el comportamiento de expansión automática */
+        display: flex;
+        /* Centra el contenido */
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        /* Fija una altura más compacta */
+        width: 100%;
+        /* Asegura que ocupen todo el ancho del menú */
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        /* Tamaño de texto más pequeño */
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        box-sizing: border-box;
+        /* Incluye los bordes y padding */
+    }
+
+    .nav-links a:hover {
+        background-color: #fff;
+        color: #E50000;
+    }
+
+    .nav-links a:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* Más delgado y menos visible */
+    }
+}
+
+
+
+.carta {
+    flex: 1;
+    margin-bottom: 0;
+    background-color: rgb(0, 0, 0);
+    /* Fondo negro para toda la página */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.row.justify-content-center {
+    text-align: center;
+}
+
+/* Estilo de la tarjeta */
+.card {
+    width: 18rem;
+    margin: 20px;
+    margin-bottom: 20px;
+    /* Espacio entre las tarjetas */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transiciones suaves solo para transform y sombra */
+}
+
+/* Efecto de resalto en la tarjeta */
+.card:hover {
+    transform: scale(1.05);
+    /* Aumentar el tamaño de la tarjeta */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Sombra alrededor de la tarjeta */
+    color: #fd9a06;
+}
+
+/* Estilo para el cuerpo de la tarjeta */
+.card-body {
+    text-align: center;
+    padding: 10px;
+    background-color: #E50000;
+    /* Color rojo estándar de Bootstrap */
+    border-radius: 0 0 10px 10px;
+}
+
+/* Estilo del enlace dentro de la tarjeta */
+.card-body a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Efecto al pasar el mouse sobre el enlace */
+.card-body a:hover {
+    color: #333;
+    /* Cambiar a un gris oscuro cuando se pase el mouse */
+}
+
+/* Estilo de la imagen de la tarjeta */
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Transiciones suaves solo para la imagen */
+}
+
+/* Efecto de resalto en la imagen */
+.card-img-top:hover {
+    transform: scale(1.05);
+    /* Aumentar el tamaño de la imagen */
+    filter: brightness(1.2);
+    /* Aumentar el brillo de la imagen */
+}
+
+
+p {
+    color: white;
+}
+
+
+/* Centramos el contenido del cuerpo de la tarjeta */
+.card-body {
+    text-align: center;
+
+}
+
+/* Para centrar el div con el título 'Entrantes' */
+.entrantes {
+    display: inline-block;
+    /* Asegurarse de que se ajuste solo al tamaño del texto */
+    background-color: #E50000;
+    /* Fondo rojo */
+    color: white;
+    /* Texto blanco */
+    padding: 20px 40px;
+    /* Espaciado dentro del contenedor */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Para hacerlo en mayúsculas */
+    margin-bottom: 20px;
+    /* Espacio debajo *
+    text-align: center; /* Centrar el texto dentro del div */
+    padding: 10px 20px;
+    justify-content: center;
+    /* Centrar contenido horizontalmente */
+    align-items: center;
+    /* Centrar contenido verticalmente */
+    margin-top: 40px;
+}
+
+.contenedor-menu {
+    display: flex;
+    flex-direction: column;
+    /* Alinear las filas verticalmente */
+    align-items: center;
+    /* Centrar las tarjetas horizontalmente */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    /* Eliminar margen izquierdo para evitar desplazamiento */
+}
+
+
+/* Estilo del contenedor que gira */
+.rueda-container {
+    position: absolute;
+    left: 0;
+    /* Mantenerla a la izquierda */
+    top: 20%;
+    /* Ajustar según tu diseño */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 150px;
+    margin-left: 20px;
+    /* Espacio con el borde izquierdo */
+    z-index: 10;
+    /* Asegura que esté sobre otros elementos */
+}
+
+.rueda {
+    width: 150px;
+    /* Ancho de la rueda */
+    height: 150px;
+    /* Alto de la rueda */
+    border-radius: 50%;
+    /* Hacerlo redondo */
+    border: 5px solid #E50000;
+    /* Borde de la rueda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    animation: girar 10s linear infinite;
+    /* Animación de giro infinito */
+}
+
+/* Estilo del texto dentro de la rueda */
+.eslogan {
+    font-size: 18px;
+    font-weight: bold;
+    color: #E50000;
+    text-transform: uppercase;
+    transform-origin: center center;
+    /* El punto de giro será el centro del texto */
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilo del Modal */
+.modal-content {
+    background-color: #333;
+    /* Fondo oscuro para el modal */
+    color: white;
+    /* Texto blanco */
+}
+
+/* Estilo del Encabezado del Modal */
+.modal-header {
+    background-color: #e50000;
+    /* Fondo rojo en el encabezado */
+    color: white;
+    /* Color del texto en el encabezado */
+    border-bottom: 2px solid #fff;
+    /* Línea blanca debajo del encabezado */
+}
+
+/* Estilo del Título del Modal */
+.modal-title {
+    color: white;
+    /* Color blanco para el título */
+}
+
+/* Estilo del Cuerpo del Modal */
+.modal-body {
+    background-color: #444;
+    /* Fondo oscuro para el cuerpo del modal */
+    color: white;
+    /* Color blanco para el texto */
+}
+
+/* Estilo del Pie del Modal */
+.modal-footer {
+    background-color: #333;
+    /* Fondo oscuro para el pie del modal */
+    color: white;
+    /* Color blanco para el texto */
+    border-top: 2px solid #fff;
+    /* Línea blanca encima del pie */
+}
+
+/* Estilo del Botón Cerrar */
+.close {
+    color: white;
+    /* Color del botón de cerrar */
+    opacity: 1;
+    /* Opacidad al máximo para que se vea bien */
+}
+
+/* Estilo al pasar el mouse sobre el botón Cerrar */
+.close:hover {
+    color: #e50000;
+    /* Cambia el color del botón al rojo al pasar el mouse */
+}
+
+
+/* Animación de giro */
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        /* Gira 360 grados */
+    }
+}
+
+/* Cambiar cursor a puntero en títulos e imágenes */
+.card-img-top:hover,
+.card-body a:hover {
+    cursor: pointer;
+}
+
+/* Estilos para el modal */
+.modal-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.modal-body img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+}
+
+.modal-body p {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.modal-body .alergenos {
+    color: #ffc107;
+    /* Amarillo para los alérgenos */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    /* Asegura que siempre se muestre en pantallas pequeñas */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ajustes en pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reserva.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="../../index.html" class="logo">
+                <img src="../images/logo.png" alt="Logo" class="logo-img">
+            </a>
+            <!-- Botón de menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links">
+                <a href="carta.html">CARTA</a>
+                <a href="domicilio.html">A DOMICILIO</a>
+                <a href="reserva.html">RESERVAS</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Sección de reservas -->
+    <section class="reservas">
+        <form id="form-reserva">
+            <select name="restaurante" id="restaurante" required>
+                <option value="" disabled selected>Seleccione un restaurante</option>
+                <option value="Sabor Urbano">Sabor Urbano</option>
+                <option value="La Parrilla Secreta">La Parrilla Secreta</option>
+                <option value="The Meat Lab">The Meat Lab</option>
+            </select>
+
+            <input type="tel" id="telefono" placeholder="Teléfono" required pattern="[0-9]{9}"
+                title="El número debe tener 9 dígitos.">
+            <input type="datetime-local" id="fecha" required>
+            <input type="number" id="personas" placeholder="Nº de personas" min="1" required>
+            <button type="button" id="reservar-btn">Reservar</button>
+        </form>
+    </section>
+
+    <div class="modal fade" id="modalReserva" tabindex="-1" aria-labelledby="modalReservaLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- Cuerpo del Modal -->
+                <div class="modal-body">
+                    <p>Tu reserva se ha guardado correctamente.</p>
+                </div>
+                <!-- Pie del Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor de Restaurantes -->
+    <div class="restaurant-container">
+        <!-- Primer Restaurante -->
+        <div class="restaurant">
+            <h3>Sabor Urbano</h3>
+            <div class="restaurant-content">
+                <img src="../images/sabor-urbano.jpg" alt="Sabor Urbano" class="restaurant-img">
+                <div class="restaurant-info">
+                    <p><strong>Avenida de Andalucía</strong></p>
+                    <p>Un espacio moderno donde lo urbano se mezcla con lo gastronómico. Platos únicos y vibrantes, con
+                        ingredientes frescos y locales, ideales para los amantes de la buena comida. Ven y disfruta de
+                        un ambiente relajado, perfecto para socializar o trabajar en un entorno que inspira.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Segundo Restaurante -->
+        <div class="restaurant">
+            <h3>La Parrilla Secreta</h3>
+            <div class="restaurant-content">
+                <img src="../images/parrilla-secreta.jpg" alt="La Parrilla Secreta" class="restaurant-img">
+                <div class="restaurant-info">
+                    <p><strong>Avenida Kansas City</strong></p>
+                    <p>Hamburguesas únicas con un toque moderno y urbano, elaboradas con carnes maduradas a la
+                        perfección. Nos especializamos en cortes premium, madurados por menos de 70 días para lograr el
+                        equilibrio perfecto entre sabor y textura. Ven y descubre una experiencia gastronómica que
+                        redefine lo que significa disfrutar de una hamburguesa.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Tercer Restaurante -->
+        <div class="restaurant">
+            <h3>The Meat Lab</h3>
+            <div class="restaurant-content">
+                <img src="../images/meat-lab.jpg" alt="The Meat Lab" class="restaurant-img">
+                <div class="restaurant-info">
+                    <p><strong>Avenida de la Paz</strong></p>
+                    <p>Descubre los sabores auténticos en La Parrilla Secreta. Especializados en cortes de carne premium
+                        y cocción a la parrilla, ofrecemos una experiencia culinaria sin igual. Perfecto para los
+                        carnívoros de corazón que buscan calidad en cada bocado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap 5 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+
+    <footer>
+        <!-- Animación Footer Rail -->
+        <div class="footer-rail">
+            <div class="rail-content">
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+            </div>
+            <div class="rail-content">
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+                <p class="texto-blanco">NACIDOS PARA MORDER</p>
+                <p class="texto-borde">NACIDOS PARA MORDER</p>
+            </div>
+        </div>
+        <div class="contenedor-footer">
+            <p>Facebook | Twitter | Instagram</p>
+            <p>Contacto: info@biteandgrill.com</p>
+            <p>Bite & Grill 2023-2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Control del menú hamburguesa
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+
+        // Validaciones
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("form-reserva");
+            const reservarBtn = document.getElementById("reservar-btn");
+
+            reservarBtn.addEventListener("click", () => {
+                // Validar formulario
+                if (form.checkValidity()) {
+                    // Mostrar modal si la validación es exitosa
+                    const modal = new bootstrap.Modal(document.getElementById('modalReserva'));
+                    modal.show();
+                } else {
+                    // Mostrar mensajes de error predeterminados
+                    form.reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

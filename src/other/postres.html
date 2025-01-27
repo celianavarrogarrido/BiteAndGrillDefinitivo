@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite & Grill</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/productos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <a href="../../index.html" class="logo">
+                <img src="../images/logo.png" alt="Logo" class="logo-img">
+            </a>
+            <!-- Botón de menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links">
+                <a href="carta.html">CARTA</a>
+                <a href="domicilio.html">A DOMICILIO</a>
+                <a href="reserva.html">RESERVAS</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="carta"> <!-- Fondo negro en todo el body -->
+        <div class="container">
+            <div class="entrantes">
+                Postres
+            </div>
+
+            <!-- Rueda con el eslogan -->
+            <div class="rueda-container">
+                <div class="rueda">
+                    <span class="eslogan">Nacidos para morder</span>
+                </div>
+            </div>
+
+            <div class="contenedor-menu">
+                <div class="row">
+                    <!-- Tarta Oreo -->
+                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/postre1escalado.png" alt="Tarta Oreo">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modalTartaOreo">Tarta Oreo</a>
+                                <p>5€</p>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarta Galleta -->
+                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/postre2escalado.jpg" alt="Tarta Galleta">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modalTartaGalleta">Tarta Galleta</a>
+                                <p>4€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Tarta Pistacho -->
+                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/postre3escalada.jpg" alt="Tarta Pistacho">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modalTartaPistacho">Tarta Pistacho</a>
+                                <p>5€</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarta Chocolate -->
+                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/postre4escalado.jpg" alt="Tarta Chocolate">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modalTartaChocolate">Tarta Chocolate</a>
+                                <p>6€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Tarta Queso -->
+                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/postre5escalada.jpg" alt="Tarta Queso">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modalTartaQueso">Tarta Queso</a>
+                                <p>5.50€</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Batidos -->
+                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/batidoescalado.jpg" alt="Batidos">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modalBatidos">Batidos</a>
+                                <p>7€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para Tarta Oreo -->
+            <div class="modal fade" id="modalTartaOreo" tabindex="-1" aria-labelledby="modalTartaOreoLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTartaOreoLabel">Tarta Oreo</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="../images/postre1escalado.png" alt="Tarta Oreo">
+                            <p>Deliciosa tarta con base de galleta Oreo y una suave crema.</p>
+                            <p class="alergenos">Contiene: Gluten, Lactosa</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para Tarta Galleta -->
+            <div class="modal fade" id="modalTartaGalleta" tabindex="-1" aria-labelledby="modalTartaGalletaLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTartaGalletaLabel">Tarta Galleta</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="../images/postre2escalado.jpg" alt="Tarta Galleta">
+                            <p>Tarta con base de galleta, relleno de crema y cobertura de chocolate.</p>
+                            <p class="alergenos">Contiene: Gluten, Lactosa</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para Tarta Pistacho -->
+            <div class="modal fade" id="modalTartaPistacho" tabindex="-1" aria-labelledby="modalTartaPistachoLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTartaPistachoLabel">Tarta Pistacho</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="../images/postre3escalada.jpg" alt="Tarta Pistacho">
+                            <p>Sencilla tarta con base de bizcocho y relleno suave de pistacho.</p>
+                            <p class="alergenos">Contiene: Gluten, Lactosa, Huevo, Frutos Secos.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para Tarta Chocolate -->
+            <div class="modal fade" id="modalTartaChocolate" tabindex="-1" aria-labelledby="modalTartaChocolateLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTartaChocolateLabel">Tarta Chocolate</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="../images/postre4escalado.jpg" alt="Tarta Chocolate">
+                            <p>Tarta decadente con capas de bizcocho, relleno de crema de chocolate y cobertura de cacao.</p>
+                            <p class="alergenos">Contiene: Gluten, Lactosa, Huevo. </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para Tarta Queso -->
+            <div class="modal fade" id="modalTartaQueso" tabindex="-1" aria-labelledby="modalTartaQuesoLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTartaQuesoLabel">Tarta Queso</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="../images/postre5escalada.jpg" alt="Tarta Queso">
+                            <p>Clásica tarta de queso con base de galleta y relleno cremoso de queso.</p>
+                            <p class="alergenos">Contiene: Gluten, Lactosa, Huevo. </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para Batidos -->
+            <div class="modal fade" id="modalBatidos" tabindex="-1" aria-labelledby="modalBatidosLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBatidosLabel">Batidos</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="../images/batidoescalado.jpg" alt="Batidos">
+                            <p>Variedad de batidos con frutas frescas, leche y sabores deliciosos.</p>
+                            <p class="alergenos">Contiene: Lactosa</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scripts de Bootstrap 5 -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        </div>
+    </div>
+</body>
+
+
+
+<footer>
+    <!-- Animación Footer Rail -->
+    <div class="footer-rail">
+        <div class="rail-content">
+            <p class="texto-blanco">NACIDOS PARA MORDER</p>
+            <p class="texto-borde">NACIDOS PARA MORDER</p>
+            <p class="texto-blanco">NACIDOS PARA MORDER</p>
+            <p class="texto-borde">NACIDOS PARA MORDER</p>
+            <p class="texto-blanco">NACIDOS PARA MORDER</p>
+            <p class="texto-borde">NACIDOS PARA MORDER</p>
+        </div>
+        <div class="rail-content">
+            <p class="texto-blanco">NACIDOS PARA MORDER</p>
+            <p class="texto-borde">NACIDOS PARA MORDER</p>
+            <p class="texto-blanco">NACIDOS PARA MORDER</p>
+            <p class="texto-borde">NACIDOS PARA MORDER</p>
+            <p class="texto-blanco">NACIDOS PARA MORDER</p>
+            <p class="texto-borde">NACIDOS PARA MORDER</p>
+        </div>
+    </div>
+    <div class="contenedor-footer">
+        <p>Facebook | Twitter | Instagram</p>
+        <p>Contacto: info@biteandgrill.com</p>
+        <p>Bite & Grill 2023-2024</p>
+    </div>
+</footer>
+</div>
+
+<script>
+    // Control del menú hamburguesa
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    });
+</script>
+</body>
+
+</html>

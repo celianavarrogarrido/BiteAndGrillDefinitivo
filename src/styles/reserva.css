@@ -1,0 +1,355 @@
+body {
+    margin: 0px !important;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    /* Fondo negro */
+}
+
+
+/* Estilos para el navbar */
+.navbar {
+    background-color: #E50000;
+    /* Color rojo */
+    display: flex;
+    justify-content: space-between;
+    /* Espacio entre logo y enlaces */
+    align-items: center;
+    /* Centrado vertical */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.navbar .logo {
+    color: #FFFFFF;
+    /* Texto blanco */
+    font-weight: bold;
+    /* Negrita */
+    font-size: 1.5rem;
+    /* Tamaño del logo */
+    text-decoration: none;
+    /* Sin subrayado */
+}
+
+/* Estilos para los enlaces de navegación */
+.navbar .nav-links {
+    flex-grow: 1;
+    /* Para usar el espacio disponible */
+    display: flex;
+    justify-content: center;
+    /* Centra los enlaces */
+    gap: 90px;
+    /* Espaciado entre enlaces */
+}
+
+/* Enlaces en la barra de navegación */
+.navbar .nav-links a {
+    color: #FFFFFF;
+    /* Texto blanco */
+    font-weight: bold;
+    /* Negrita */
+    font-size: 35px;
+    /* Tamaño grande de texto para los enlaces */
+    text-decoration: none;
+    /* Sin subrayado */
+}
+
+/* Efecto hover para los enlaces */
+.navbar .nav-links a:hover {
+    color: #E50000;
+    /* Color de relleno rojo */
+    -webkit-text-stroke: 1px white;
+    /* Borde blanco */
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links a {
+        font-size: 24px;
+        /* Reduce el tamaño de los enlaces en pantallas pequeñas */
+    }
+
+    .navbar .nav-links {
+        gap: 30px;
+        /* Reduce el espacio entre enlaces */
+    }
+}
+
+/* Estilos para la barra de reservas */
+.reservas {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Permite que los elementos se reorganicen en pantallas pequeñas */
+}
+
+
+
+/* Estilos para los campos del formulario */
+.reservas form select,
+.reservas form input,
+.reservas form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1; /* Los elementos ocupan espacio proporcional */
+    min-width: 150px;
+}
+
+
+.reservas form button:hover {
+    background-color: #c00000;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .reservas {
+        flex-direction: column; /* Reorganiza los elementos en columna */
+        gap: 15px; /* Aumenta el espacio entre los elementos */
+        padding: 20px; /* Ajusta el espacio interno */
+    }
+
+    .reservas form select,
+    .reservas form input,
+    .reservas form button {
+        flex: none; /* Evita que se estiren */
+        width: 100%; /* Los campos ocupan todo el ancho */
+        font-size: 14px; /* Reduce el tamaño de la fuente */
+    }
+
+    .reservas form button {
+        flex: none; /* Evita que el botón se estire */
+    }
+}
+
+/* Ajustes para el contenedor de restaurantes */
+.restaurant-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espaciado lateral */
+}
+
+
+/* Ajustes para cada restaurante */
+.restaurant {
+    background-color: red;
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+}
+
+
+/* Ajustes para el contenido de los restaurantes */
+.restaurant-content {
+    display: flex;
+    align-items: flex-start; /* Alinea la imagen con el texto */
+    gap: 15px;
+    flex-wrap: wrap; /* Permite el ajuste automático en dispositivos pequeños */
+}
+
+
+/* Imagen del restaurante */
+.restaurant-img {
+    width: 550px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0; /* Evita que la imagen se reduzca demasiado */
+}
+
+/* Información del restaurante */
+.restaurant-info {
+    flex: 1;
+    font-size: 14px; /* Ajusta el tamaño del texto para dispositivos pequeños */
+    color: #000000; /* Asegura que el texto sea visible en todos los tamaños */
+    overflow-wrap: break-word; /* Permite dividir palabras largas */
+}
+
+
+/* Título del restaurante */
+.restaurant h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #000000;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .restaurant-content {
+        flex-direction: column; /* Cambia a disposición vertical */
+        align-items: center; /* Centra los elementos */
+        text-align: center; /* Centra el texto */
+    }
+
+    .restaurant-img {
+        width: 100%; /* Imagen ocupa todo el ancho */
+        height: auto; /* Ajuste automático */
+    }
+
+    .restaurant-info {
+        margin-top: 10px; /* Espaciado adicional entre imagen y texto */
+        font-size: 16px; /* Aumenta ligeramente el tamaño del texto */
+    }
+}
+
+
+footer {
+    background-color: #E50000;
+    color: white;
+    text-align: center;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-rail {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    height: 2rem;
+    margin-bottom: 20px;
+}
+
+.rail-content {
+    display: flex;
+    white-space: nowrap;
+    animation: slide 15s linear infinite;
+}
+
+.footer-rail p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 5px;
+    font-style: italic;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+}
+
+.contenedor-footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.texto-blanco {
+    color: white;
+}
+
+.texto-borde {
+    color: #E50000;
+    -webkit-text-stroke: 1px white;
+}
+
+
+@media (max-width: 768px) {
+    .contenedor-footer {
+        flex-direction: column;
+    }
+
+
+    .footer-rail p {
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes para el menú hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Responsividad para el menú hamburguesa */
+  @media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+  
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(229, 0, 0, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 9;
+        box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+    }
+  
+    .nav-links.active {
+        transform: translateX(0);
+    }
+  
+    .nav-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px; /* Altura uniforme */
+        width: 100%; /* Ocupa todo el ancho */
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    .nav-links a:hover {
+        background-color: #fff;
+        color: #E50000;
+    }
+  
+    .nav-links a:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }

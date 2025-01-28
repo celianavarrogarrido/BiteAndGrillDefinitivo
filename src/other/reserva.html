@@ -36,17 +36,29 @@
     <!-- Sección de reservas -->
     <section class="reservas">
         <form id="form-reserva">
+            <!-- Etiqueta para el select del restaurante -->
+            <label for="restaurante">Restaurante</label>
             <select name="restaurante" id="restaurante" required>
                 <option value="" disabled selected>Seleccione un restaurante</option>
                 <option value="Sabor Urbano">Sabor Urbano</option>
                 <option value="La Parrilla Secreta">La Parrilla Secreta</option>
                 <option value="The Meat Lab">The Meat Lab</option>
             </select>
-
+    
+            <!-- Etiqueta para el input de teléfono -->
+            <label for="telefono">Tlf.</label>
             <input type="tel" id="telefono" placeholder="Teléfono" required pattern="[0-9]{9}"
                 title="El número debe tener 9 dígitos.">
+    
+            <!-- Etiqueta para el input de fecha y hora -->
+            <label for="fecha">Date</label>
             <input type="datetime-local" id="fecha" required>
+    
+            <!-- Etiqueta para el input de número de personas -->
+            <label for="personas">Nº personas</label>
             <input type="number" id="personas" placeholder="Nº de personas" min="1" required>
+    
+            <!-- Botón de reserva -->
             <button type="button" id="reservar-btn">Reservar</button>
         </form>
     </section>

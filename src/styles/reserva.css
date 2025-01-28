@@ -90,25 +90,40 @@ body {
     max-width: 1200px;
     box-sizing: border-box;
     flex-wrap: wrap; /* Permite que los elementos se reorganicen en pantallas pequeñas */
+    color:#E50000;
 }
 
 
 
 /* Estilos para los campos del formulario */
 .reservas form select,
-.reservas form input,
-.reservas form button {
+.reservas form input {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     flex: 1; /* Los elementos ocupan espacio proporcional */
     min-width: 150px;
+    
+}
+
+.reservas form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 150px;
+    margin-left: auto;  /* Empuja el botón a la derecha */
+    margin-right: auto; /* Empuja el botón a la izquierda */
+    margin-top: 10px;
+    display: block; /* Cambia el comportamiento del botón a bloque */
+    flex-shrink: 0; /* Evita que el botón se reduzca más de lo necesario */
 }
 
 
+
 .reservas form button:hover {
-    background-color: #c00000;
+    background-color: #E50000;
 }
 
 /* Responsividad para pantallas pequeñas */

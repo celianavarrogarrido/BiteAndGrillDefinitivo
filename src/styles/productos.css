@@ -425,6 +425,12 @@ p {
     /* Fondo oscuro para el cuerpo del modal */
     color: white;
     /* Color blanco para el texto */
+   
+}
+.modal-body p {
+ 
+    text-align: left; /* Alinea a la izquierda */
+ 
 }
 
 /* Estilo del Pie del Modal */
@@ -471,7 +477,7 @@ p {
 }
 
 .modal-body p {
-    text-align: justify;
+    text-align: left;
     margin-bottom: 10px;
 }
 
@@ -481,6 +487,10 @@ p {
     font-weight: bold;
     margin-top: 10px;
 }
+.modal-body .alergenos p{
+    text-align: left;
+}
+
 
 .menu-toggle {
     display: none;

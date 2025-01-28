@@ -90,60 +90,92 @@ body {
     max-width: 1200px;
     box-sizing: border-box;
     flex-wrap: wrap; /* Permite que los elementos se reorganicen en pantallas pequeñas */
-    color:#E50000;
 }
 
+/* Organización del formulario */
+.reservas form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
 
+/* Grupo superior: Restaurante, Teléfono y Nº de personas */
+.grupo-superior {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
-/* Estilos para los campos del formulario */
-.reservas form select,
-.reservas form input {
+.grupo-superior select,
+.grupo-superior input {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    flex: 1; /* Los elementos ocupan espacio proporcional */
+    flex: 1;
     min-width: 150px;
-    
 }
 
-.reservas form button {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    min-width: 150px;
-    margin-left: auto;  /* Empuja el botón a la derecha */
-    margin-right: auto; /* Empuja el botón a la izquierda */
+/* Grupo inferior: Fecha, hora y botón */
+.grupo-inferior {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.fecha-hora {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fecha-hora label {
     margin-top: 10px;
-    display: block; /* Cambia el comportamiento del botón a bloque */
-    flex-shrink: 0; /* Evita que el botón se reduzca más de lo necesario */
 }
 
+.fecha-hora input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex: 1;
+    min-width: 200px;
+    max-width: 383px;
+}
 
+.grupo-inferior button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    min-width: 150px;
+    background-color: #d3d3d3;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-.reservas form button:hover {
+.grupo-inferior button:hover {
     background-color: #E50000;
+    color: #fff;
 }
 
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
-    .reservas {
-        flex-direction: column; /* Reorganiza los elementos en columna */
-        gap: 15px; /* Aumenta el espacio entre los elementos */
-        padding: 20px; /* Ajusta el espacio interno */
+    .grupo-superior,
+    .grupo-inferior {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .reservas form select,
-    .reservas form input,
-    .reservas form button {
-        flex: none; /* Evita que se estiren */
-        width: 100%; /* Los campos ocupan todo el ancho */
-        font-size: 14px; /* Reduce el tamaño de la fuente */
-    }
-
-    .reservas form button {
-        flex: none; /* Evita que el botón se estire */
+    .grupo-inferior label,
+    .grupo-inferior input,
+    .grupo-superior select,
+    .grupo-superior input,
+    .grupo-inferior button {
+        width: 100%;
+        font-size: 14px;
     }
 }
 

@@ -106,11 +106,13 @@ footer {
 
 .texto-blanco {
   color: white;
+  margin: 0px 5px 8px 0px;
 }
 
 .texto-borde {
   color: #E50000;
   -webkit-text-stroke: 1px white;
+  margin: 0px 5px 8px 0px;
 }
 
 @media (max-width: 768px) {
@@ -162,7 +164,7 @@ footer {
   border: none;
   cursor: pointer;
   min-height: 48px;
-  
+  margin-top: 24px;
 }
 
 .container button:hover {

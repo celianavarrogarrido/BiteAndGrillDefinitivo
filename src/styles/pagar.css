@@ -106,10 +106,12 @@ footer {
 
 .texto-blanco {
   color: white;
+  margin: 0px 5px 8px 0px;
 }
 
 .texto-borde {
   color: #E50000;
+  margin: 0px 5px 8px 0px;
   -webkit-text-stroke: 1px white;
 }
 
@@ -148,7 +150,7 @@ footer {
 .container select,
 .container button {
   width: 100%;
-  padding: 12px;
+  padding: 15px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -162,7 +164,7 @@ footer {
   border: none;
   cursor: pointer;
   min-height: 48px;
-  
+  margin-top: 24px;
 }
 
 .container button:hover {

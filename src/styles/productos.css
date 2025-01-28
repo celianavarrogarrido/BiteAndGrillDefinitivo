@@ -86,7 +86,7 @@ footer {
     animation: slide 15s linear infinite;
 }
 
-.footer-rail p {
+.footer-rail h4 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 5px;
@@ -111,7 +111,7 @@ footer {
     gap: 10px;
 }
 
-.contenedor-footer p {
+.contenedor-footer h5 {
     margin: 0;
     font-size: 1rem;
 }
@@ -130,7 +130,7 @@ footer {
         flex-direction: column;
     }
 
-    .footer-rail p {
+    .footer-rail h4 {
         font-size: 1rem;
     }
 
@@ -226,6 +226,7 @@ footer {
     margin: 20px;
     margin-bottom: 20px;
     /* Espacio entre las tarjetas */
+    color: #fff;
     border-radius: 10px;
     /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -258,6 +259,10 @@ footer {
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
+}
+
+.card-body p {
+    color: #ffffff;
 }
 
 /* Efecto al pasar el mouse sobre el enlace */
@@ -333,7 +338,6 @@ p {
 }
 
 
-/* Estilo del contenedor que gira */
 .rueda-container {
     position: absolute;
     left: 0;
@@ -348,16 +352,16 @@ p {
     /* Espacio con el borde izquierdo */
     z-index: 10;
     /* Asegura que esté sobre otros elementos */
-}
-
-.rueda {
+  }
+  
+  .rueda {
     width: 150px;
     /* Ancho de la rueda */
     height: 150px;
     /* Alto de la rueda */
     border-radius: 50%;
     /* Hacerlo redondo */
-    border: 5px solid #E50000;
+    border: 5px solid #F2C31F;
     /* Borde de la rueda */
     display: flex;
     justify-content: center;
@@ -365,19 +369,31 @@ p {
     position: absolute;
     animation: girar 10s linear infinite;
     /* Animación de giro infinito */
-}
-
-/* Estilo del texto dentro de la rueda */
-.eslogan {
+  }
+  
+  /* Estilo del texto dentro de la rueda */
+  .eslogan {
     font-size: 18px;
     font-weight: bold;
-    color: #E50000;
+    color: #F2C31F;
     text-transform: uppercase;
     transform-origin: center center;
     /* El punto de giro será el centro del texto */
     text-align: center;
     padding: 10px;
-}
+  }
+  
+  /* Animación de giro */
+  @keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+  
+    100% {
+        transform: rotate(360deg);
+        /* Gira 360 grados */
+    }
+  }
 
 /* Estilo del Modal */
 .modal-content {
@@ -433,19 +449,6 @@ p {
 .close:hover {
     color: #e50000;
     /* Cambia el color del botón al rojo al pasar el mouse */
-}
-
-
-/* Animación de giro */
-@keyframes girar {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-        /* Gira 360 grados */
-    }
 }
 
 /* Cambiar cursor a puntero en títulos e imágenes */

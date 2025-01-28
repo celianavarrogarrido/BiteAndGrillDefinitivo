@@ -31,6 +31,7 @@ body {
     color: white;
     text-shadow: 2px 2px 5px black;
     animation: fadeInUp 1.5s ease-in-out;
+    
 }
 
 .overlay .text-content p {
@@ -135,7 +136,7 @@ footer {
     animation: slide 15s linear infinite;
 }
 
-.footer-rail p {
+.footer-rail h4 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 5px;
@@ -178,7 +179,7 @@ footer {
     .contenedor-footer {
         flex-direction: column;
     }
-    .footer-rail p {
+    .footer-rail h4 {
         font-size: 1rem;
     }
 

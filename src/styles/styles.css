@@ -31,6 +31,7 @@ body {
     color: white;
     text-shadow: 2px 2px 5px black;
     animation: fadeInUp 1.5s ease-in-out;
+    
 }
 
 .overlay .text-content p {

@@ -113,6 +113,7 @@ footer {
   color: #E50000;
   margin: 0px 5px 8px 0px;
   -webkit-text-stroke: 1px white;
+  margin: 0px 5px 8px 0px;
 }
 
 @media (max-width: 768px) {

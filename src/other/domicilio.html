@@ -14,7 +14,7 @@
 
     <header>
         <div class="navbar">
-            <!-- Logo --> 
+            <!-- Logo -->
             <a href="../../index.html" class="logo">
                 <img src="../images/logo.png" alt="Logo Bite&Grill" class="logo-img">
             </a>
@@ -46,18 +46,20 @@
             <div class="item" data-name="Maestranza" data-price="9.00">Maestranza <span>9.00 €</span></div>
             <div class="item" data-name="El Alcázar" data-price="10.00">El Alcázar <span>10.00 €</span></div>
             <div class="item" data-name="Torre del oro" data-price="11.00">Torre del oro <span>11.00 €</span></div>
-            <div class="item" data-name="Archivo de Indias" data-price="12.00">Archivo de Indias <span>12.00 €</span></div>
+            <div class="item" data-name="Archivo de Indias" data-price="12.00">Archivo de Indias <span>12.00 €</span>
+            </div>
             <div class="item" data-name="Alameda" data-price="13.00">Alameda <span>13.00 €</span></div>
 
             <h2>Ensaladas</h2>
-            <div class="item" data-name="Ensalada Mediterránea" data-price="4.50">Ensalada Mediterránea <span>4.50 €</span></div>
+            <div class="item" data-name="Ensalada Mediterránea" data-price="4.50">Ensalada Mediterránea <span>4.50
+                    €</span></div>
             <div class="item" data-name="Ensalada César" data-price="5.50">Ensalada César <span>5.50 €</span></div>
 
             <h2>Bebidas</h2>
             <div class="item" data-name="Refrescos" data-price="2.50">Refrescos <span>2.50 €</span></div>
             <div class="item" data-name="Mojitos" data-price="3.50">Mojitos <span>3.50 €</span></div>
             <div class="item" data-name="Cerveza" data-price="3.00">Cerveza <span>3.00 €</span></div>
-            <div class="item" data-name="Margaritas" data-price="4.00">Margaritas <span>4.00 €</span></div> 
+            <div class="item" data-name="Margaritas" data-price="4.00">Margaritas <span>4.00 €</span></div>
 
             <h2>Postres</h2>
             <div class="item" data-name="Tarta oreo" data-price="4.50">Tarta oreo <span>4.50 €</span></div>
@@ -70,11 +72,10 @@
 
         <div class="cesta">
             <h2>Cesta</h2>
-            <div id="cesta-items">
-                <!-- Elementos añadidos dinámicamente -->
-            </div>
+            <div id="cesta-items"></div>
+            <p id="cesta-alerta" class="alerta-cesta" style="display: none;">⚠ No puedes pagar con la cesta vacía.</p>
             <div class="pagar">
-                <a href="pagar.html"><button id="pagar">Pagar (0.00 €)</button></a>
+                <button id="pagar">Pagar (0.00 €)</button>
             </div>
         </div>
     </div>
@@ -83,26 +84,25 @@
         const menuItems = document.querySelectorAll('.menu .item');
         const cestaItemsContainer = document.getElementById('cesta-items');
         const pagarButton = document.getElementById('pagar');
-        const pagarLink = pagarButton.closest("a"); // Enlace <a> que rodea el botón
-    
+        const cestaAlerta = document.getElementById('cesta-alerta');
+
         let total = 0;
         const cesta = {};
-    
+
         function updateButtonState() {
             if (total > 0) {
                 pagarButton.disabled = false;
-                pagarLink.href = "pagar.html"; // Permite la redirección
+                cestaAlerta.style.display = "none"; // Oculta la alerta si hay productos
             } else {
-                pagarButton.disabled = true;
-                pagarLink.href = "javascript:void(0)"; // Evita que redirija
+                pagarButton.disabled = false; // No deshabilita, pero lanza alerta si se pulsa
             }
         }
-    
+
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
                 const name = item.dataset.name;
                 const price = parseFloat(item.dataset.price);
-    
+
                 if (cesta[name]) {
                     cesta[name].quantity += 1;
                     cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
@@ -110,15 +110,15 @@
                     const cestaItem = document.createElement('div');
                     cestaItem.className = 'cesta-item';
                     cestaItem.innerHTML = `
-                        <span>${name}</span>
-                        <button class="decrease">-</button>
-                        <span class="quantity">1</span>
-                        <button class="increase">+</button>
-                        <span class="price">${price.toFixed(2)} €</span>
-                        <button class="remove">✖</button>
-                    `;
+                <span>${name}</span>
+                <button class="decrease">-</button>
+                <span class="quantity">1</span>
+                <button class="increase">+</button>
+                <span class="price">${price.toFixed(2)} €</span>
+                <button class="remove">✖</button>
+            `;
                     cesta[name] = { price, quantity: 1, element: cestaItem };
-    
+
                     cestaItem.querySelector('.increase').addEventListener('click', () => {
                         cesta[name].quantity++;
                         updateItem(name);
@@ -134,63 +134,72 @@
                     cestaItem.querySelector('.remove').addEventListener('click', () => removeItem(name));
                     cestaItemsContainer.appendChild(cestaItem);
                 }
+
                 total += price;
                 updateTotal();
+                cestaAlerta.style.display = "none"; // 🔥 La alerta se oculta cuando añades un producto
             });
         });
-    
+
+        pagarButton.addEventListener("click", () => {
+            if (total === 0) {
+                cestaAlerta.style.display = "block"; // Muestra la alerta y NO la oculta automáticamente
+            } else {
+                window.location.href = "pagar.html";
+            }
+        });
+
         function updateItem(name) {
             cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
             updateTotal();
         }
-    
+
         function removeItem(name) {
             total -= cesta[name].price * cesta[name].quantity;
             cesta[name].element.remove();
             delete cesta[name];
             updateTotal();
         }
-    
+
         function updateTotal() {
             total = Object.values(cesta).reduce((sum, item) => sum + item.price * item.quantity, 0);
             pagarButton.textContent = `Pagar (${total.toFixed(2)} €)`;
             localStorage.setItem("precioPagar", total.toFixed(2));
-    
+
             updateButtonState();
         }
-    
-        // **Deshabilitar botón de pago si la cesta está vacía al cargar la página**
+
         document.addEventListener("DOMContentLoaded", () => {
             updateButtonState();
         });
     </script>
 
-<footer>
-    <!-- Animación Footer Rail -->
-    <div class="footer-rail">
-        <div class="rail-content">
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+    <footer>
+        <!-- Animación Footer Rail -->
+        <div class="footer-rail">
+            <div class="rail-content">
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+            </div>
+            <div class="rail-content">
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+            </div>
         </div>
-        <div class="rail-content">
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+        <div class="contenedor-footer">
+            <h5>Facebook | Twitter | Instagram</h5>
+            <h5>Contacto: info@biteandgrill.com</h5>
+            <h5>Bite & Grill 2023-2024</h5>
         </div>
-    </div>
-    <div class="contenedor-footer">
-        <h5>Facebook | Twitter | Instagram</h5>
-        <h5>Contacto: info@biteandgrill.com</h5>
-        <h5>Bite & Grill 2023-2024</h5>
-    </div>
-</footer>
+    </footer>
 
     <script>
         // Control del menú hamburguesa

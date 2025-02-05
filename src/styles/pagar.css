@@ -194,6 +194,20 @@ footer {
   transition: all 0.3s ease-in-out;
 }
 
+#pagarBtn {
+  background-color: #595959;
+  color: white;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+#pagarBtn:hover {
+  background-color: #777;
+}
+
 /* Ajustes en pantallas pequeñas */
 @media (max-width: 768px) {
   .menu-toggle {

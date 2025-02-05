@@ -83,15 +83,26 @@
         const menuItems = document.querySelectorAll('.menu .item');
         const cestaItemsContainer = document.getElementById('cesta-items');
         const pagarButton = document.getElementById('pagar');
-
+        const pagarLink = pagarButton.closest("a"); // Enlace <a> que rodea el botón
+    
         let total = 0;
         const cesta = {};
-
+    
+        function updateButtonState() {
+            if (total > 0) {
+                pagarButton.disabled = false;
+                pagarLink.href = "pagar.html"; // Permite la redirección
+            } else {
+                pagarButton.disabled = true;
+                pagarLink.href = "javascript:void(0)"; // Evita que redirija
+            }
+        }
+    
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
                 const name = item.dataset.name;
                 const price = parseFloat(item.dataset.price);
-
+    
                 if (cesta[name]) {
                     cesta[name].quantity += 1;
                     cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
@@ -107,7 +118,7 @@
                         <button class="remove">✖</button>
                     `;
                     cesta[name] = { price, quantity: 1, element: cestaItem };
-
+    
                     cestaItem.querySelector('.increase').addEventListener('click', () => {
                         cesta[name].quantity++;
                         updateItem(name);
@@ -127,25 +138,31 @@
                 updateTotal();
             });
         });
-
+    
         function updateItem(name) {
             cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
             updateTotal();
         }
-
+    
         function removeItem(name) {
             total -= cesta[name].price * cesta[name].quantity;
             cesta[name].element.remove();
             delete cesta[name];
             updateTotal();
         }
-
+    
         function updateTotal() {
             total = Object.values(cesta).reduce((sum, item) => sum + item.price * item.quantity, 0);
             pagarButton.textContent = `Pagar (${total.toFixed(2)} €)`;
-            const precio = total;
-            localStorage.setItem("precioPagar", precio.toFixed(2));
+            localStorage.setItem("precioPagar", total.toFixed(2));
+    
+            updateButtonState();
         }
+    
+        // **Deshabilitar botón de pago si la cesta está vacía al cargar la página**
+        document.addEventListener("DOMContentLoaded", () => {
+            updateButtonState();
+        });
     </script>
 
 <footer>

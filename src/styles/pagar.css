@@ -53,43 +53,51 @@ body {
   }
 }
 
-/* SECCIÓN DE PAGO - Centrada y sin solapamiento */
 .pagar {
-  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px; /* Asegura que no se superponga con el navbar */
-  padding-bottom: 50px; /* Evita tocar el footer */
-  height: auto;
-  min-height: 75vh; /* Asegura que tenga altura suficiente */
+  padding: 60px 20px;
+  flex-grow: 1;
 }
 
 /* Contenedor del formulario */
 .container {
-  background-color: #d3d3d3;
+  background: #d3d3d3;
   padding: 30px;
   width: 90%;
-  max-width: 400px;
+  max-width: 450px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos generales para inputs y botones */
+/* INPUTS Y SELECTS */
 .container input,
-.container select,
-.container button {
+.container select {
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   box-sizing: border-box;
+}
+
+/* Grupo de fecha y CVV */
+.tarjeta-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+
+.tarjeta-flex select,
+.tarjeta-flex input {
+  width: 32%;
 }
 
 /* Botón de pago */
@@ -106,8 +114,25 @@ body {
   transition: background-color 0.3s;
 }
 
+/* BOTÓN DE PAGO ANIMADO */
+#pagarBtn {
+  background: linear-gradient(90deg, #E50000, #b90000);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  margin-top: 24px;
+  width: 100%;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
 #pagarBtn:hover {
-  background-color: #c40000;
+  background: linear-gradient(90deg, #ff3d3d, #E50000);
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(255, 61, 61, 0.5);
 }
 
 /* FOOTER */

@@ -46,10 +46,17 @@
             <!-- Mensaje de error -->
             <p id="error-message" style="color: red; display: none; margin-top: 10px;"></p>
 
-            <!-- Mensaje de pago exitoso -->
-            <p id="success-message" style="color: green; display: none; font-weight: bold; margin-top: 10px;">
-                ¡Pago realizado con éxito! 🎉
-            </p>
+            <!-- Animación de carga (Oculta por defecto) -->
+            <div class="loading-overlay" id="loading" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+
+            <!-- Mensaje de pago exitoso (Oculto por defecto) -->
+            <div class="success-alert" id="successMessage" style="display: none;">
+                <h3>✅ Pago realizado con éxito</h3>
+                <p>Gracias por tu compra. En breve recibirás un correo con los detalles.</p>
+            </div>
+
         </div>
     </div>
 
@@ -57,7 +64,8 @@
         document.addEventListener("DOMContentLoaded", () => {
             const botonPagar = document.getElementById("pagarBtn");
             const errorMessage = document.getElementById("error-message");
-            const successMessage = document.getElementById("success-message");
+            const loadingOverlay = document.getElementById("loading");
+            const successMessage = document.getElementById("successMessage");
 
             // Obtener el precio guardado en localStorage
             const precio = localStorage.getItem("precioPagar");
@@ -117,16 +125,26 @@
                     return;
                 }
 
-                // Simulación de pago exitoso
+                // Ocultar mensaje de error si todo está bien
                 errorMessage.style.display = "none";
-                successMessage.style.display = "block";
 
-                // Después de 3 segundos, redirigir a la página de inicio
+                // 🔹 Mostrar la animación de carga
+                loadingOverlay.style.display = "flex";
+
+                // Simular procesamiento de pago (3 segundos)
                 setTimeout(() => {
-                    window.location.href = "../../index.html";
+                    loadingOverlay.style.display = "none"; // Ocultar la animación
+                    successMessage.style.display = "block"; // Mostrar mensaje de éxito
+
+                    // Redirigir después de 3 segundos
+                    setTimeout(() => {
+                        window.location.href = "../../index.html";
+                    }, 3000);
                 }, 3000);
             });
         });
+
+
     </script>
 
     <footer>

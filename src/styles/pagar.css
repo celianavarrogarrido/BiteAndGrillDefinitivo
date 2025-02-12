@@ -223,6 +223,58 @@ footer {
   transition: all 0.3s ease-in-out;
 }
 
+/* Animación de carga */
+.loading-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #E50000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Alerta de éxito */
+.success-alert {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1000;
+  width: 80%;
+  max-width: 400px;
+}
+
+.success-alert h3 {
+  color: #E50000;
+}
+
+
 /* Ajustes en pantallas pequeñas */
 @media (max-width: 768px) {
   .menu-toggle {

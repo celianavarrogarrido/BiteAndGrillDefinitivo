@@ -223,6 +223,7 @@ footer {
   transition: all 0.3s ease-in-out;
 }
 
+
 /* Animación de carga */
 .loading-overlay {
   display: none; /* Oculto por defecto */

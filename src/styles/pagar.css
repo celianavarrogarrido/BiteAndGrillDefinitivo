@@ -1,16 +1,20 @@
 body {
   margin: 0px !important;
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
 }
 
+/* NAVBAR */
 .navbar {
   background-color: #E50000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 20px;
+  width: 100%;
 }
 
 .navbar .logo {
@@ -49,6 +53,89 @@ body {
   }
 }
 
+.pagar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  flex-grow: 1;
+}
+
+/* Contenedor del formulario */
+.container {
+  background: #d3d3d3;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* INPUTS Y SELECTS */
+.container input,
+.container select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Grupo de fecha y CVV */
+.tarjeta-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+
+.tarjeta-flex select,
+.tarjeta-flex input {
+  width: 32%;
+}
+
+/* Botón de pago */
+#pagarBtn {
+  background-color: #E50000;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  margin-top: 24px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+/* BOTÓN DE PAGO ANIMADO */
+#pagarBtn {
+  background: linear-gradient(90deg, #E50000, #b90000);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  margin-top: 24px;
+  width: 100%;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+#pagarBtn:hover {
+  background: linear-gradient(90deg, #ff3d3d, #E50000);
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(255, 61, 61, 0.5);
+}
+
+/* FOOTER */
 footer {
   background-color: #E50000;
   color: white;
@@ -57,6 +144,7 @@ footer {
   padding-top: 5px;
   margin-top: auto;
   width: 100%;
+  margin-top: auto;
 }
 
 .footer-rail {
@@ -297,8 +385,9 @@ footer {
   background-color: #777;
 }
 
+/* MENÚ HAMBURGUESA */
 .menu-toggle {
-  display: none; /* Asegura que siempre se muestre en pantallas pequeñas */
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
@@ -318,23 +407,61 @@ footer {
   transition: all 0.3s ease-in-out;
 }
 
-#pagarBtn {
-  background-color: #595959;
-  color: white;
-  border: none;
-  cursor: pointer;
-  min-height: 48px;
-  margin-top: 24px;
+/* Animación de carga */
+.loading-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-#pagarBtn:hover {
-  background-color: #777;
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #E50000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Alerta de éxito */
+.success-alert {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1000;
+  width: 80%;
+  max-width: 400px;
+}
+
+.success-alert h3 {
+  color: #E50000;
+}
+
 
 /* Ajustes en pantallas pequeñas */
 @media (max-width: 768px) {
   .menu-toggle {
-      display: flex;
+    display: flex;
   }
 }

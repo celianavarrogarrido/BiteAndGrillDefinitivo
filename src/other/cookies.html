@@ -33,27 +33,30 @@
         </div>
     </header>
 
-    <div class="content">
-        <h1>Política de Cookies de Bite&Grill</h1>
-        <p>En Bite&Grill utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando accedes a nuestro sitio.</p>
-        <p></p>
-        <h2>¿Qué son las cookies?</h2>
-        <p>Las cookies son pequeños archivos que se envían a tu navegador y se almacenan en tu dispositivo. Nos ayudan a personalizar tu experiencia, recordar tus preferencias y mejorar la funcionalidad de nuestro sitio web.</p>
-        <p></p>
-        <h2>Tipos de cookies que utilizamos:</h2>
-        <li>Cookies necesarias: Son esenciales para el funcionamiento de nuestro sitio web y permiten realizar funciones básicas como el acceso a áreas seguras, el procesamiento de pedidos, etc.</li>
-        <li>Cookies de rendimiento: Recopilan información sobre cómo los usuarios interactúan con el sitio, lo que nos permite mejorar el rendimiento y la usabilidad.</li>
-        <li>Cookies de funcionalidad: Permiten recordar tus preferencias, como el idioma o la región, para personalizar tu experiencia.</li>
-        <li>Cookies de publicidad: Utilizadas para mostrar anuncios relevantes en función de tu comportamiento de navegación.</li>
-        <p></p>
-        <h2>Cómo gestionar las cookies</h2>
-        <p>Puedes configurar tu navegador para rechazar todas las cookies o para que te avise cuando se estén utilizando cookies. Sin embargo, ten en cuenta que algunas funciones del sitio web pueden no funcionar correctamente si desactivas las cookies.</p>
-        <p></p>
-        <p>Para más información sobre cómo gestionar las cookies, consulta la configuración de tu navegador o visita www.aboutcookies.org.</p>
-        <p></p>
-        <h2>Consentimiento para el uso de cookies</h2>
-        <p>Al continuar utilizando nuestro sitio web, aceptas el uso de cookies según lo establecido en esta política.</p>
-    </div>
+    <h2>¿Qué son las cookies?</h2>
+    <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo cuando los visitas. Estas permiten reconocer tu dispositivo y recordar tus preferencias para mejorar tu navegación.</p>
+    
+    <h2>Tipos de cookies que utilizamos</h2>
+    <ul>
+        <li><strong>Cookies esenciales:</strong> Son necesarias para el funcionamiento de la página web y no pueden desactivarse en nuestros sistemas.</li>
+        <li><strong>Cookies de rendimiento:</strong> Nos permiten analizar el tráfico y mejorar el rendimiento de nuestro sitio web.</li>
+        <li><strong>Cookies de funcionalidad:</strong> Permiten recordar configuraciones personalizadas, como el idioma o la región.</li>
+        <li><strong>Cookies de publicidad y marketing:</strong> Utilizadas para ofrecerte anuncios personalizados en función de tus intereses.</li>
+    </ul>
+    
+    <h2>¿Cómo aceptar y gestionar las cookies?</h2>
+    <p>Cuando visitas nuestro sitio web por primera vez, aparecerá un banner de cookies donde podrás:</p>
+    <ul>
+        <li><strong>Aceptar todas las cookies</strong> para una experiencia completa.</li>
+        <li><strong>Rechazar cookies no esenciales</strong> manteniendo solo las necesarias para el funcionamiento del sitio.</li>
+        <li><strong>Personalizar preferencias</strong> para seleccionar qué tipos de cookies deseas permitir.</li>
+    </ul>
+    <p>También puedes gestionar o desactivar las cookies en cualquier momento a través de la configuración de tu navegador. Ten en cuenta que al deshabilitar algunas cookies, la funcionalidad de la web puede verse afectada.</p>
+    
+    <h2>Cambios en la política de cookies</h2>
+    <p>Podemos actualizar esta política periódicamente. Cualquier cambio será publicado en esta página con la fecha de actualización.</p>
+    
+    <p>Si tienes dudas, contáctanos en <strong>biteandgrill@gmail.com</strong>.</p>
 
 
     <footer>
@@ -112,6 +115,33 @@
             });
         });
     </script>
+    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #333; color: white; padding: 10px; text-align: center;">
+        🍪 Usamos cookies para mejorar tu experiencia. 
+        <button onclick="acceptCookies()">Aceptar</button>
+        <button onclick="rejectCookies()">Rechazar</button>
+        <button onclick="customizeCookies()">Personalizar</button>
+    </div>
+    
+    <script>
+        function acceptCookies() {
+            localStorage.setItem("cookiesAccepted", "true");
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    
+        function rejectCookies() {
+            localStorage.setItem("cookiesAccepted", "false");
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    
+        function customizeCookies() {
+            alert("Aquí podrías abrir un menú de configuración de cookies.");
+        }
+    
+        if (localStorage.getItem("cookiesAccepted") !== null) {
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    </script>
+    
 </body>
 
 </html>

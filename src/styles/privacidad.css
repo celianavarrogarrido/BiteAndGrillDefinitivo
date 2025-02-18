@@ -289,146 +289,74 @@ footer {
     margin-top: 2rem;
 }
 
-/* Contenedor principal */
-.container {
+ /* Contenedor principal */
+ .container {
     max-width: 900px;
     margin: 40px auto;
     padding: 30px;
     background-color: #e6e6e6; /* Gris claro elegante */
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05); /* Sombra ligera */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
     color: #222; /* Texto oscuro para mejor contraste */
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem; /* Letra más pequeña */
 }
 
-/* Títulos */
-h2 {
-    font-size: 1.8rem;
-    color: #990000; /* Rojo oscuro/granate elegante */
-    font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    border-bottom: 2px solid #990000; /* Línea sutil en rojo oscuro */
-    padding-bottom: 5px;
-}
-
-/* Párrafos */
-p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333; /* Gris oscuro para suavizar */
-    margin-bottom: 15px;
-}
-
-/* Listas */
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-/* Ítems de lista */
-ul li {
-    font-size: 1.1rem;
-    color: #222;
-    padding: 10px;
-    background: rgba(153, 0, 0, 0.1); /* Fondo con rojo oscuro translúcido */
-    border-left: 4px solid #990000; /* Barra sutil en rojo oscuro */
-    margin-bottom: 10px;
-    transition: all 0.3s ease-in-out;
-    border-radius: 5px;
-}
-
-/* Efecto hover en listas */
-ul li:hover {
-    background: rgba(153, 0, 0, 0.2);
-}
-
-/* Texto destacado */
-ul li strong {
-    font-weight: bold;
-    color: #660000; /* Rojo más apagado */
-}
-
-/* Enlaces */
-a {
-    color: #990000;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: black;
-    text-decoration: underline;
-}
-
-/* Resaltado en párrafos */
-p strong {
-    color: #990000;
-}
-/* Contenedor general */
-.privacy-container {
-    background-color: #f8f9fa;
-    color: #212529;
-    padding: 40px;
-    border-radius: 8px;
-    max-width: 900px;
-    margin: 40px auto;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilo para los títulos */
-.privacy-container h1 {
-    color: #E50000;
-    font-size: 2rem;
+/* Título principal */
+.container h1 {
+    color: #E50000; /* Rojo */
+    font-size: 1.8rem; /* Tamaño reducido */
     font-weight: bold;
     text-align: center;
     margin-bottom: 30px;
 }
 
-.privacy-container h2 {
-    color: #E50000;
-    font-size: 1.5rem;
-    margin-top: 20px;
+/* Subtítulos */
+h2 {
+    font-size: 1.3rem; /* Tamaño reducido */
+    color: #000; /* Negro */
     font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: none;
+    border-bottom: none;
 }
 
-/* Estilo para los párrafos */
-.privacy-container p {
-    font-size: 1rem;
+h3 {
+    font-size: 1rem; /* Tamaño reducido */
+    color: #000; /* Negro */
+    font-weight: normal; /* Sin negrita */
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* Párrafos */
+p {
+    font-size: 0.9rem; /* Letra más pequeña */
     line-height: 1.6;
+    color: #222; /* Negro para un mejor contraste */
     margin-bottom: 15px;
 }
 
-/* Estilo para la lista */
-.privacy-container ul {
-    list-style-type: none;
-    padding-left: 0;
+/* Listas */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
-.privacy-container li {
-    font-size: 1rem;
-    padding: 8px 0;
-    position: relative;
-    padding-left: 25px;
-}
-
-/* Íconos antes de cada item de la lista */
-.privacy-container li::before {
-    content: "✔";  
-    color: #E50000;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
+ul li {
+    font-size: 0.9rem; /* Letra más pequeña */
+    color: #222;
+    margin-bottom: 5px;
 }
 
 /* Enlaces */
-.privacy-container a {
-    color: #E50000;
-    font-weight: bold;
+a {
+    color: #222;
     text-decoration: none;
 }
 
-.privacy-container a:hover {
+a:hover {
+    color: black;
     text-decoration: underline;
 }

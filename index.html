@@ -116,20 +116,21 @@
 </body>
 <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #333; color: white; padding: 15px; text-align: center; z-index: 1000;">
     <p>🍪 Usamos cookies para mejorar tu experiencia en nuestro sitio web.</p>
-    <button onclick="acceptCookies()" aria-label="Aceptar cookies">Aceptar</button>
-    <button onclick="rejectCookies()" aria-label="Rechazar cookies">Rechazar</button>
+    <button onclick="setCookies('accepted')" aria-label="Aceptar cookies">Aceptar</button>
+    <button onclick="setCookies('rejected')" aria-label="Rechazar cookies">Rechazar</button>
     <button onclick="customizeCookies()" aria-label="Personalizar cookies">Personalizar</button>
 </div>
 
 <script>
-    function acceptCookies() {
-        localStorage.setItem("cookiesAccepted", "true");
-        document.getElementById("cookie-banner").style.display = "none";
-    }
-
-    function rejectCookies() {
-        localStorage.setItem("cookiesAccepted", "false");
-        document.getElementById("cookie-banner").style.display = "none";
+    function setCookies(status) {
+        fetch("cookies.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "cookiesStatus=" + status
+        }).then(() => {
+            localStorage.setItem("cookiesAccepted", status);
+            document.getElementById("cookie-banner").style.display = "none";
+        });
     }
 
     function customizeCookies() {

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=description content="El mejor lugar para tus hamburguesas">
+    <title>Bite & Grill</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../styles/privacidad.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <a href="../../index.html" class="logo">
+                <img src="../images/logo.png" alt="Logo Bite&Grill" class="logo-img">
+            </a>
+            <!-- Botón de menú hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links">
+                <a href="../other/carta.html">CARTA</a>
+                <a href="../other/domicilio.html">A DOMICILIO</a>
+                <a href="../other/reserva.html">RESERVAS</a>
+            </div>
+        </div>
+    </header>
+
+   
+    <div class="container">
+        <h1>Contacto</h1>
+
+        <div class="contact-info">
+            <h2>Información de Contacto</h2>
+            <p><strong>Email General:</strong> <a href="mailto:biteandgrill@gmail.com">biteandgrill@gmail.com</a></p>
+            <p><strong>Direcciones y Teléfonos de Reservas:</strong></p>
+            <ul>
+                <li>📍 Sevilla - Avenida Andalucía 10 | 📞 <a href="tel:611111111">611 111 111</a></li>
+                <li>📍 Sevilla - Avenida Kansas City 456 | 📞 <a href="tel:622222222">622 222 222</a></li>
+                <li>📍 Dos Hermanas - Avenida España 7 | 📞 <a href="tel:633333333">633 333 333</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <footer>
+        <div class="contenedor-footer">
+            <div>
+                <a href="index.html">INICIO</a>
+                <a href="/src/other/carta.html">CARTA</a>
+                <a href="/src/other/domicilio.html">A DOMICILIO</a>
+                <a href="/src/other/reserva.html">RESERVAS</a>
+            </div>
+            
+            <div>
+                <span class="title">REDES SOCIALES</span>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                </div>
+                <span class="title">2025 © TODOS LOS DERECHOS RESERVADOS</span>
+            </div>
+            <div>
+                <a href="/src/other/privacidad.html">POLÍTICA DE PRIVACIDAD</a>
+                <a href="/src/other/cookies.html">POLÍTICA DE COOKIES</a>
+                <a href="/src/other/faq.html">PREGUNTAS FRECUENTES</a>
+                <a href="/src/other/contacto.html">CONTACTO</a>
+            </div>
+        </div>
+
+        <div class="footer-rail">
+            <div class="rail-content">
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+            </div>
+            <div class="rail-content">
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Control del menú hamburguesa
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

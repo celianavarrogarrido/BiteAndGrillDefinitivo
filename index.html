@@ -57,7 +57,7 @@
                 <a href="/src/other/domicilio.html">A DOMICILIO</a>
                 <a href="/src/other/reserva.html">RESERVAS</a>
             </div>
-            
+
             <div>
                 <span class="title">REDES SOCIALES</span>
                 <div class="social-icons">
@@ -73,7 +73,7 @@
                 </div>
                 <span class="title">2025 © TODOS LOS DERECHOS RESERVADOS</span>
             </div>
-            
+
             <div>
                 <a href="/src/other/privacidad.html">POLÍTICA DE PRIVACIDAD</a>
                 <a href="/src/other/cookies.html">POLÍTICA DE COOKIES</a>
@@ -122,24 +122,32 @@
 </div>
 
 <script>
-    function setCookies(status) {
-        fetch("cookies.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "cookiesStatus=" + status
-        }).then(() => {
-            localStorage.setItem("cookiesAccepted", status);
-            document.getElementById("cookie-banner").style.display = "none";
-        });
+   document.addEventListener("DOMContentLoaded", function () {
+    // Verifica si el estado de cookies ya está guardado en localStorage
+    if (localStorage.getItem("cookiesAccepted") === "accepted" || localStorage.getItem("cookiesAccepted") === "rejected") {
+        document.getElementById("cookie-banner").style.display = "none";  // Oculta el banner si ya fue aceptado o rechazado
     }
+});
 
-    function customizeCookies() {
-        alert("Aquí podrías abrir un menú de configuración de cookies con más opciones.");
-    }
+function setCookies(status) {
+    fetch("http://localhost/BiteAndGrill/src/backend/cookies.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "cookiesStatus=" + status
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Respuesta del servidor:", data); // Para depuración
+        localStorage.setItem("cookiesAccepted", status); // Guarda estado en localStorage
+        document.getElementById("cookie-banner").style.display = "none"; // Oculta el banner después de aceptar/rechazar
+    })
+    .catch(error => console.error("Error:", error));
+}
 
-    if (localStorage.getItem("cookiesAccepted") !== null) {
-        document.getElementById("cookie-banner").style.display = "none";
-    }
+function customizeCookies() {
+    alert("Aquí podrías abrir un menú de configuración de cookies con más opciones.");
+}
 </script>
+
 
 </html>

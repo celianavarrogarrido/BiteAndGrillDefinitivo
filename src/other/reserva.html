@@ -48,7 +48,7 @@
                     title="El número debe tener 9 dígitos.">
 
                 <input type="email" id="correo" placeholder="Correo Electrónico" required>
-                
+
                 <input type="number" id="personas" aria-label="personas" placeholder="Nº de personas" min="1" required>
             </div>
 
@@ -141,7 +141,7 @@
                 <a href="/src/other/domicilio.html">A DOMICILIO</a>
                 <a href="/src/other/reserva.html">RESERVAS</a>
             </div>
-            
+
             <div>
                 <span class="title">REDES SOCIALES</span>
                 <div class="social-icons">
@@ -157,7 +157,7 @@
                 </div>
                 <span class="title">2025 © TODOS LOS DERECHOS RESERVADOS</span>
             </div>
-            
+
             <div>
                 <a href="/src/other/privacidad.html">POLÍTICA DE PRIVACIDAD</a>
                 <a href="/src/other/cookies.html">POLÍTICA DE COOKIES</a>
@@ -203,13 +203,41 @@
             const reservarBtn = document.getElementById("reservar-btn");
 
             reservarBtn.addEventListener("click", () => {
-                // Validar formulario
                 if (form.checkValidity()) {
-                    // Mostrar modal si la validación es exitosa
+                    // Obtener datos del formulario
+                    const restaurante = document.getElementById("restaurante").value;
+                    const telefono = document.getElementById("telefono").value.trim();
+                    const correo = document.getElementById("correo").value.trim();
+                    const personas = document.getElementById("personas").value.trim();
+                    const fechaHora = document.getElementById("fecha").value;
+
+                    // Mostrar el modal de éxito
                     const modal = new bootstrap.Modal(document.getElementById('modalReserva'));
                     modal.show();
+
+                    // Enviar datos al PHP usando fetch
+                    fetch('/biteandgrilldefinitivo/src/backend/enviarReserva.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            nombre: "Cliente", // Puedes incluir un campo de nombre si lo añades en el formulario
+                            correo: correo,
+                            telefono: telefono,
+                            restaurante: restaurante,
+                            personas: personas,
+                            fechaHora: fechaHora
+                        })
+                    })
+                        .then(response => response.text())
+                        .then(data => {
+                            console.log(data);
+                            alert(data); // Muestra el resultado en un alert
+                        })
+                        .catch(error => {
+                            console.error('Error al enviar la reserva:', error);
+                            alert('Hubo un problema al enviar la reserva.');
+                        });
                 } else {
-                    // Mostrar mensajes de error predeterminados
                     form.reportValidity();
                 }
             });

@@ -220,10 +220,6 @@ footer {
     transition: color 0.3s ease-in-out;
 }
 
-.social-icons a:hover {
-    color: #FFD700; /* Color dorado al pasar el cursor */
-}
-
 /* Responsividad */
 @media (max-width: 768px) {
     .contenedor-footer {

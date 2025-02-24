@@ -45,34 +45,20 @@
                     <span class="eslogan">Nacidos para morder</span>
                 </div>
             </div>
-            
+
             <div class="contenedor-menu">
                 <div class="row">
                     <!-- Ensalada Mediterránea -->
                     <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/ensalada1.jpg" alt="Ensalada Mediterránea" data-bs-toggle="modal" data-bs-target="#modalMediterranea">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalMediterranea">Ensalada Mediterránea</a>
-                                <p>4.50€</p>
-                            </div>
-                        </div>
+                        
                     </div>
-                    <!-- Ensalada César -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/ensalada2.jpg" alt="Ensalada César" data-bs-toggle="modal" data-bs-target="#modalCesar">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalCesar">Ensalada César</a>
-                                <p>5.50€</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
             <!-- Modal Ensalada Mediterránea -->
-            <div class="modal fade" id="modalMediterranea" tabindex="-1" aria-labelledby="modalMediterraneaLabel" aria-hidden="true">
+            <div class="modal fade" id="modalMediterranea" tabindex="-1" aria-labelledby="modalMediterraneaLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <!-- Encabezado del Modal -->
@@ -85,7 +71,8 @@
                         <!-- Cuerpo del Modal -->
                         <div class="modal-body">
                             <img src="../images/ensalada1.jpg" alt="Ensalada Mediterránea">
-                            <p>Una deliciosa mezcla de vegetales frescos, aceitunas, queso feta y un toque de aceite de oliva virgen extra.</p>
+                            <p>Una deliciosa mezcla de vegetales frescos, aceitunas, queso feta y un toque de aceite de
+                                oliva virgen extra.</p>
                             <p class="alergenos">Contiene: Lactosa.</p>
                         </div>
                         <!-- Pie del Modal -->
@@ -136,7 +123,7 @@
                 <a href="../other/domicilio.html">A DOMICILIO</a>
                 <a href="../other/reserva.html">RESERVAS</a>
             </div>
-            
+
             <div>
                 <span class="title">REDES SOCIALES</span>
                 <div class="social-icons">
@@ -152,7 +139,7 @@
                 </div>
                 <span class="title">2025 © TODOS LOS DERECHOS RESERVADOS</span>
             </div>
-            
+
             <div>
                 <a href="../other/privacidad.html">POLÍTICA DE PRIVACIDAD</a>
                 <a href="../other/cookies.html">POLÍTICA DE COOKIES</a>
@@ -191,6 +178,40 @@
                 navLinks.classList.toggle("active");
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    fetch('../backend/obtener_productos.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let contenedorMenu = document.querySelector('.contenedor-menu .row');
+            contenedorMenu.innerHTML = '';
+            let i = 1;
+
+            // Filtrar solo los productos de la categoría 'Ensaladas'
+            let ensaladas = data.filter(producto => producto.Categoria === 'Ensaladas');
+
+            // Iterar sobre los productos filtrados
+            ensaladas.forEach(producto => {
+                let card = `
+                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/ensalada${i}.jpg" alt="${producto.Nombre_Producto}" data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">${producto.Nombre_Producto}</a>
+                                <p>${producto.Precio}€</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                contenedorMenu.innerHTML += card;
+                i++;
+            });
+        })
+        .catch(error => console.log("Error cargando los productos: ", error));
+});
+
+
     </script>
 </body>
 

@@ -205,7 +205,15 @@ footer {
 
 .title {
     font-weight: 600;
+    display: inline;
+    
 }
+
+
+.title a {
+    display: inline;
+}
+
 
 .social-icons {
     display: flex;

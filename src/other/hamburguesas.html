@@ -126,70 +126,76 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-fetch('../backend/obtener_productos.php')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        let contenedorMenu = document.querySelector('.contenedor-menu .row');
-        contenedorMenu.innerHTML = '';
-        let i = 1;
+        fetch('../backend/obtener_productos.php')
+            .then(response => response.json())
+            .then(data => {
+                let contenedorMenu = document.querySelector('.contenedor-menu');
+                let modalesContainer = document.createElement('div');
+                contenedorMenu.innerHTML = '';
+                modalesContainer.innerHTML = '';
 
-        // Contenedor para los modales
-        let modalesContainer = document.createElement('div');
+                let i = 1;
+                let row = null;
 
-        // Filtrar solo los productos de la categoría 
-        let hamburguesas = data.filter(producto => producto.Categoria === 'Hamburguesas');
+                // Filtrar solo los productos de la categoría 'Hamburguesas'
+                let hamburguesas = data.filter(producto => producto.Categoria === 'Hamburguesas');
 
-        // Iterar sobre los productos filtrados
-        hamburguesas.forEach(producto => {
-            // Tarjeta de producto
-            let card = `
-                <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                    <div class="card">
-                        <img class="card-img-top" src="../images/hamburguesa${i}escalada.jpg" alt="${producto.Nombre_Producto}" data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">
-                        <div class="card-body">
-                            <a data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">${producto.Nombre_Producto}</a>
-                            <p>${producto.Precio}€</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-            contenedorMenu.innerHTML += card;
+                hamburguesas.forEach((producto, index) => {
+                    // Cada 2 productos crea una nueva fila
+                    if (index % 2 === 0) {
+                        row = document.createElement('div');
+                        row.className = 'row justify-content-center mb-3';
+                        contenedorMenu.appendChild(row);
+                    }
 
-            // Modal generado dinámicamente
-            let modal = `
-                <div class="modal fade" id="modal${producto.ID_Producto}" tabindex="-1" aria-labelledby="modal${producto.ID_Producto}Label" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modal${producto.ID_Producto}Label">${producto.Nombre_Producto}</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="../images/hamburguesa${i}escalada.jpg" alt="${producto.Nombre_Producto}" class="img-fluid">
-                                <p>${producto.Descripcion}</p>
-                                <p class="alergenos"><strong>Alergenos:</strong> ${producto.Alergenos}</p>
-                                
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    // Crear tarjeta del producto
+                    let card = `
+                        <div class="col-12 col-md-6 d-flex justify-content-center">
+                            <div class="card">
+                                <img class="card-img-top" src="../images/hamburguesa${i}escalada.jpg" alt="${producto.Nombre_Producto}" data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">
+                                <div class="card-body">
+                                    <a data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">${producto.Nombre_Producto}</a>
+                                    <p>${producto.Precio}€</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            `;
-            modalesContainer.innerHTML += modal;
-            i++;
-        });
+                    `;
+                    row.innerHTML += card;
 
-        // Añadir todos los modales al final del contenedor principal
-        document.body.appendChild(modalesContainer);
-    })
-    .catch(error => console.log("Error cargando los productos: ", error));
-});
+                    // Crear modal del producto
+                    let modal = `
+                        <div class="modal fade" id="modal${producto.ID_Producto}" tabindex="-1" aria-labelledby="modal${producto.ID_Producto}Label" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modal${producto.ID_Producto}Label">${producto.Nombre_Producto}</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="../images/hamburguesa${i}escalada.jpg" alt="${producto.Nombre_Producto}" class="img-fluid">
+                                        <p>${producto.Descripcion}</p>
+                                        <p class="alergenos"><strong>Alergenos:</strong> ${producto.Alergenos}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    modalesContainer.innerHTML += modal;
+                    i++;
+                });
+
+                // Añadir todos los modales al final del contenedor principal
+                document.body.appendChild(modalesContainer);
+            })
+            .catch(error => console.log("Error cargando los productos: ", error));
+    });
 </script>
+
 </body>
 
 </html>

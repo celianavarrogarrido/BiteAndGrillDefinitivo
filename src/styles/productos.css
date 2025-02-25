@@ -402,6 +402,15 @@ p {
     /* Eliminar margen izquierdo para evitar desplazamiento */
 }
 
+.contenedor-menu .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar las tarjetas */
+    margin: 0 auto;
+    gap: 20px; /* Ajusta el espacio entre tarjetas */
+    padding: 0;
+}
+
 
 .rueda-container {
     position: absolute;
@@ -585,3 +594,4 @@ p {
         display: flex;
     }
 }
+

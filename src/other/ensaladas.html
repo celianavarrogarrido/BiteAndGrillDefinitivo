@@ -169,16 +169,6 @@
     </footer>
 
     <script>
-        // Control del menú hamburguesa
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const navLinks = document.querySelector(".nav-links");
-
-            menuToggle.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
-        });
-
         document.addEventListener("DOMContentLoaded", function () {
     fetch('../backend/obtener_productos.php')
         .then(response => response.json())
@@ -188,11 +178,15 @@
             contenedorMenu.innerHTML = '';
             let i = 1;
 
+            // Contenedor para los modales
+            let modalesContainer = document.createElement('div');
+
             // Filtrar solo los productos de la categoría 'Ensaladas'
             let ensaladas = data.filter(producto => producto.Categoria === 'Ensaladas');
 
             // Iterar sobre los productos filtrados
             ensaladas.forEach(producto => {
+                // Tarjeta de producto
                 let card = `
                     <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
                         <div class="card">
@@ -205,13 +199,40 @@
                     </div>
                 `;
                 contenedorMenu.innerHTML += card;
+
+                // Modal generado dinámicamente
+                let modal = `
+                    <div class="modal fade" id="modal${producto.ID_Producto}" tabindex="-1" aria-labelledby="modal${producto.ID_Producto}Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modal${producto.ID_Producto}Label">${producto.Nombre_Producto}</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="../images/ensalada${i}.jpg" alt="${producto.Nombre_Producto}" class="img-fluid">
+                                    <p>${producto.Descripcion}</p>
+                                    <p><strong>Alergenos:</strong> ${producto.Alergenos}</p>
+                                    <p><strong>Precio:</strong> ${producto.Precio}€</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modalesContainer.innerHTML += modal;
                 i++;
             });
+
+            // Añadir todos los modales al final del contenedor principal
+            document.body.appendChild(modalesContainer);
         })
         .catch(error => console.log("Error cargando los productos: ", error));
 });
-
-
     </script>
 </body>
 

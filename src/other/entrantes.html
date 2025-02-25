@@ -9,35 +9,27 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../styles/productos.css">
-
 </head>
 
 <body>
 
     <header>
         <div class="navbar">
-            <!-- Logo -->
             <a href="../../index.html" class="logo">
                 <img src="../images/logo.png" alt="Logo Bite&Grill" class="logo-img">
             </a>
-            <!-- Botón de menú hamburguesa -->
             <button class="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <!-- Enlaces de navegación -->
             <div class="nav-links">
                 <a href="carta.html">CARTA</a>
                 <a href="domicilio.html">A DOMICILIO</a>
                 <a href="reserva.html">RESERVAS</a>
             </div>
-           
-            
-                
         </div>
     </header>
-
 
     <div class="carta">
         <div class="container">
@@ -45,7 +37,6 @@
                 Entrantes
             </div>
 
-            <!-- Rueda con el eslogan -->
             <div class="rueda-container">
                 <div class="rueda">
                     <span class="eslogan">Nacidos para morder</span>
@@ -53,168 +44,31 @@
             </div>
 
             <div class="contenedor-menu">
-                <div class="row">
-                    <!-- Tarjeta Alitas picantes -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/alitaspicantes.jpg" alt="Alitas picantes" data-bs-toggle="modal" data-bs-target="#modalAlitasPicantes">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalAlitasPicantes">Alitas picantes</a>
-                                <p>9€/10 uds.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta Tequeños -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/teques.jpg" alt="Tequeños" data-bs-toggle="modal" data-bs-target="#modalTequenos">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalTequenos">Tequeños</a>
-                                <p>10€/6 uds.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- Tarjeta Aros de Cebolla -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/aroscebolla.jpg" alt="Aros de Cebolla" data-bs-toggle="modal" data-bs-target="#modalArosCebolla">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalArosCebolla">Aros de Cebolla</a>
-                                <p>5€</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tarjeta Tiras de Pollo -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/tiraspollo.jpg" alt="Tiras de Pollo" data-bs-toggle="modal" data-bs-target="#modalTirasPollo">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalTirasPollo">Tiras de Pollo</a>
-                                <p>12€</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row g-3 justify-content-center">
+                    <!-- Aquí se cargarán dinámicamente las tarjetas de los entrantes -->
                 </div>
             </div>
 
-        <!-- Modal Alitas picantes -->
-        <div class="modal fade" id="modalAlitasPicantes" tabindex="-1" aria-labelledby="modalAlitasPicantesLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <!-- Encabezado del Modal -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalAlitasPicantesLabel">Alitas Picantes</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <!-- Cuerpo del Modal -->
-                    <div class="modal-body">
-                        <img src="../images/alitaspicantes.jpg" alt="Alitas Picantes">
-                        <p>Deliciosas alitas de pollo, cubiertas con una salsa picante especial. Perfectas para disfrutar con amigos.</p>
-                        <p class="alergenos">Contiene: Gluten, Soja.</p>
-                    </div>
-                    <!-- Pie del Modal -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!-- Modal Tequeños -->
-            <div class="modal fade" id="modalTequenos" tabindex="-1" aria-labelledby="modalTequenosLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <!-- Encabezado del Modal -->
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalTequenosLabel">Tequeños</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- Cuerpo del Modal -->
-                        <div class="modal-body">
-                            <img src="../images/teques.jpg" alt="Tequeños">
-                            <p>Tequeños de queso, crujientes por fuera y suaves por dentro. ¡Perfectos para picar en cualquier ocasión!</p>
-                            <p class="alergenos">Contiene: Gluten, Huevo y Lactosa.</p>
-                        </div>
-                        <!-- Pie del Modal -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Contenedor dinámico para los modales -->
+            <div id="modales-container"></div>
 
-            <!-- Modal Aros de Cebolla -->
-            <div class="modal fade" id="modalArosCebolla" tabindex="-1" aria-labelledby="modalArosCebollaLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <!-- Encabezado del Modal -->
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalArosCebollaLabel">Aros de Cebolla</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- Cuerpo del Modal -->
-                        <div class="modal-body">
-                            <img src="../images/aroscebolla.jpg" alt="ArosCebolla">
-                            <p>Crujientes aros de cebolla fritos, ideales como acompañamiento o aperitivo.</p>
-                            <p class="alergenos">Contiene: Gluten.</p>
-                        </div>
-                        <!-- Pie del Modal -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal Tiras de Pollo -->
-            <div class="modal fade" id="modalTirasPollo" tabindex="-1" aria-labelledby="modalTirasPolloLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <!-- Encabezado del Modal -->
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalTirasPolloLabel">Tiras de Pollo</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- Cuerpo del Modal -->
-                        <div class="modal-body">
-                            <img src="../images/tiraspollo.jpg" alt="TirasPollo">
-                            <p>Jugosas tiras de pollo rebozadas y fritas, perfectas para acompañar con tu salsa favorita.</p>
-                            <p class="alergenos">Contiene: Gluten, Huevo.</p>
-                        </div>
-                        <!-- Pie del Modal -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scripts de Bootstrap 5 -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
         </div>
     </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
     <footer>
         <div class="contenedor-footer">
             <div>
-                <a href="../../index.htmll">INICIO</a>
+                <a href="../../index.html">INICIO</a>
                 <a href="../other/carta.html">CARTA</a>
                 <a href="../other/domicilio.html">A DOMICILIO</a>
                 <a href="../other/reserva.html">RESERVAS</a>
             </div>
-            
+
             <div>
                 <span class="title">REDES SOCIALES</span>
                 <div class="social-icons">
@@ -232,7 +86,7 @@
                     <a href="../other/aviso.html">Aviso Legal</a>
                 </span>
             </div>
-            
+
             <div>
                 <a href="../other/privacidad.html">POLÍTICA DE PRIVACIDAD</a>
                 <a href="../other/cookies.html">POLÍTICA DE COOKIES</a>
@@ -261,8 +115,76 @@
         </div>
     </footer>
 
-
+    <!-- SCRIPT PARA CARGAR LOS PRODUCTOS Y MODALES DESDE LA BASE DE DATOS -->
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    fetch('../backend/obtener_productos.php')
+        .then(response => response.json())
+        .then(data => {
+            let contenedorMenu = document.querySelector('.contenedor-menu');
+            let modalesContainer = document.getElementById('modales-container');
+            contenedorMenu.innerHTML = '';
+            modalesContainer.innerHTML = '';
+
+            let i = 1;
+            let row = null;
+
+            // Filtrar productos por la categoría 'Entrantes'
+            let entrantes = data.filter(producto => producto.Categoria === 'Entrantes');
+
+            entrantes.forEach((producto, index) => {
+                // Cada 2 productos crea una nueva fila
+                if (index % 2 === 0) {
+                    row = document.createElement('div');
+                    row.className = 'row justify-content-center mb-3';
+                    contenedorMenu.appendChild(row);
+                }
+
+                // Crear la tarjeta del producto
+                let card = `
+                    <div class="col-12 col-md-6 d-flex justify-content-center">
+                        <div class="card">
+                            <img class="card-img-top" src="../images/entrante${i}.jpg" alt="${producto.Nombre_Producto}" data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">
+                            <div class="card-body">
+                                <a data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">${producto.Nombre_Producto}</a>
+                                <p>${producto.Precio}€</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                row.innerHTML += card;
+
+                // Crear el modal del producto
+                let modal = `
+                    <div class="modal fade" id="modal${producto.ID_Producto}" tabindex="-1" aria-labelledby="modal${producto.ID_Producto}Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modal${producto.ID_Producto}Label">${producto.Nombre_Producto}</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="../images/entrante${i}.jpg" alt="${producto.Nombre_Producto}" class="img-fluid">
+                                    <p>${producto.Descripcion}</p>
+                                    <p class="alergenos"><strong>Alergenos:</strong> ${producto.Alergenos}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modalesContainer.innerHTML += modal;
+                i++;
+            });
+        })
+        .catch(error => console.log("Error cargando los productos: ", error));
+});
+
+
         // Control del menú hamburguesa
         document.addEventListener("DOMContentLoaded", () => {
             const menuToggle = document.querySelector(".menu-toggle");
@@ -273,7 +195,7 @@
             });
         });
     </script>
-</body>
 
+</body>
 
 </html>

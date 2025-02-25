@@ -11,19 +11,17 @@
 </head>
 
 <body>
+
     <header>
         <div class="navbar">
-            <!-- Logo -->
             <a href="../../index.html" class="logo">
                 <img src="../images/logo.png" alt="Logo Bite&Grill" class="logo-img">
             </a>
-            <!-- Botón de menú hamburguesa -->
             <button class="menu-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <!-- Enlaces de navegación -->
             <div class="nav-links">
                 <a href="carta.html">CARTA</a>
                 <a href="domicilio.html">A DOMICILIO</a>
@@ -32,231 +30,172 @@
         </div>
     </header>
 
-    <div class="carta"> <!-- Fondo negro en todo el body -->
+    <div class="carta">
         <div class="container">
             <div class="entrantes">
                 Bebidas
             </div>
 
-            <!-- Rueda con el eslogan -->
             <div class="rueda-container">
                 <div class="rueda">
                     <span class="eslogan">Nacidos para morder</span>
                 </div>
             </div>
-            
+
             <div class="contenedor-menu">
                 <div class="row">
-                    <!-- Refrescos -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/cocacolaescalada.jpg" alt="Refrescos">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalRefresco">Refrescos</a>
-                                <p>1.50€</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mojitos -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/bebidas.png" alt="Mojitos">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalMojito">Mojitos</a>
-                                <p>8 €</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- Cerveza -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/cervezaescalada.jpg" alt="Cerveza">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalCerveza">Cerveza</a>
-                                <p>5€</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Margaritas -->
-                    <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-                        <div class="card">
-                            <img class="card-img-top" src="../images/margaritaescalado.jpg" alt="Margaritas">
-                            <div class="card-body">
-                                <a data-bs-toggle="modal" data-bs-target="#modalMargarita">Margaritas</a>
-                                <p>8€</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Aquí se cargarán dinámicamente las tarjetas de las bebidas -->
                 </div>
             </div>
 
-            <!-- Modal para Refrescos -->
-            <div class="modal fade" id="modalRefresco" tabindex="-1" aria-labelledby="modalRefrescoLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalRefrescoLabel">Refrescos</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="../images/cocacolaescalada.jpg" alt="Refrescos" class="img-fluid">
-                            <p>Refrescos fríos y refrescantes para acompañar tu comida.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Contenedor dinámico para los modales -->
+            <div id="modales-container"></div>
 
-            <!-- Modal para Mojitos -->
-            <div class="modal fade" id="modalMojito" tabindex="-1" aria-labelledby="modalMojitoLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalMojitoLabel">Mojito</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="../images/bebidas.png" alt="Mojitos" class="img-fluid">
-                            <p>Cóctel a base de ron blanco con limón, hierbabuena y azúcar moreno con mucho hielo.</p>
-                            <p class="alergenos">Contiene: Cítricos</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal para Cerveza -->
-            <div class="modal fade" id="modalCerveza" tabindex="-1" aria-labelledby="modalCervezaLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalCervezaLabel">Cerveza</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="../images/cervezaescalada.jpg" alt="Cerveza" class="img-fluid">
-                            <p>Cerveza fresca ideal para acompañar tus platos favoritos.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal para Margaritas -->
-            <div class="modal fade" id="modalMargarita" tabindex="-1" aria-labelledby="modalMargaritaLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalMargaritaLabel">Margaritas</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="../images/margaritaescalado.jpg" alt="Margaritas" class="img-fluid">
-                            <p>Cóctel refrescante a base de tequila, limón y triple sec.</p>
-                            <p class="alergenos">Contiene: Cítricos</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scripts de Bootstrap 5 -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-        </div>
-    </div>
-</body>
-<footer>
-    <div class="contenedor-footer">
-        <div>
-            <a href="../../index.html">INICIO</a>
-            <a href="../other/carta.html">CARTA</a>
-            <a href="../other/domicilio.html">A DOMICILIO</a>
-            <a href="../other/reserva.html">RESERVAS</a>
-        </div>
-        
-        <div>
-            <span class="title">REDES SOCIALES</span>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/" class="social-link" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/" class="social-link" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.x.com/" class="social-link" aria-label="Twitter">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-            </div>
-            <span class="title"> ©Bite&Grill 2025 | 
-                <a href="../other/aviso.html">Aviso Legal</a>
-            </span>
-        </div>
-        
-        <div>
-            <a href="../other/privacidad.html">POLÍTICA DE PRIVACIDAD</a>
-            <a href="../other/cookies.html">POLÍTICA DE COOKIES</a>
-            <a href="../other/faq.html">PREGUNTAS FRECUENTES</a>
-            <a href="../other/contacto.html">CONTACTO</a>
         </div>
     </div>
 
-    <div class="footer-rail">
-        <div class="rail-content">
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-        </div>
-        <div class="rail-content">
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
-            <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
-        </div>
-    </div>
-</footer>
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 
+    <footer>
+        <div class="contenedor-footer">
+            <div>
+                <a href="../../index.html">INICIO</a>
+                <a href="../other/carta.html">CARTA</a>
+                <a href="../other/domicilio.html">A DOMICILIO</a>
+                <a href="../other/reserva.html">RESERVAS</a>
+            </div>
+
+            <div>
+                <span class="title">REDES SOCIALES</span>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.x.com/" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+                <span class="title">2025 © TODOS LOS DERECHOS RESERVADOS</span>
+            </div>
+
+            <div>
+                <a href="../other/privacidad.html">POLÍTICA DE PRIVACIDAD</a>
+                <a href="../other/cookies.html">POLÍTICA DE COOKIES</a>
+                <a href="../other/faq.html">PREGUNTAS FRECUENTES</a>
+                <a href="../other/contacto.html">CONTACTO</a>
+            </div>
+        </div>
+
+        <div class="footer-rail">
+            <div class="rail-content">
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+            </div>
+            <div class="rail-content">
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-blanco">NACIDOS PARA MORDER</h4>
+                <h4 class="texto-borde">NACIDOS PARA MORDER</h4>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT PARA CARGAR LAS BEBIDAS Y MODALES DESDE LA BASE DE DATOS -->
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('../backend/obtener_productos.php')
+                .then(response => response.json())
+                .then(data => {
+                    let contenedorMenu = document.querySelector('.contenedor-menu');
+                    let modalesContainer = document.getElementById('modales-container');
+                    contenedorMenu.innerHTML = '';
+                    modalesContainer.innerHTML = '';
+    
+                    let i = 1;
+                    let row = null;
+    
+                    // Filtrar los productos por la categoría 'Bebidas'
+                    let bebidas = data.filter(producto => producto.Categoria === 'Bebidas');
+    
+                    bebidas.forEach((producto, index) => {
+                        // Crear una nueva fila cada 2 productos
+                        if (index % 2 === 0) {
+                            row = document.createElement('div');
+                            row.className = 'row justify-content-center mb-3';
+                            contenedorMenu.appendChild(row);
+                        }
+    
+                        // Crear tarjeta de bebida
+                        let card = `
+                            <div class="col-12 col-md-6 d-flex justify-content-center">
+                                <div class="card">
+                                    <img class="card-img-top" src="../images/bebida${i}.jpg" alt="${producto.Nombre_Producto}" data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">
+                                    <div class="card-body">
+                                        <a data-bs-toggle="modal" data-bs-target="#modal${producto.ID_Producto}">${producto.Nombre_Producto}</a>
+                                        <p>${producto.Precio}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        row.innerHTML += card;
+    
+                        // Crear modal para la bebida
+                        let modal = `
+                            <div class="modal fade" id="modal${producto.ID_Producto}" tabindex="-1" aria-labelledby="modal${producto.ID_Producto}Label" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modal${producto.ID_Producto}Label">${producto.Nombre_Producto}</h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="../images/bebida${i}.jpg" alt="${producto.Nombre_Producto}" class="img-fluid">
+                                            <p>${producto.Descripcion}</p>
+                                            <p class="alergenos"><strong>Alergenos:</strong> ${producto.Alergenos}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        modalesContainer.innerHTML += modal;
+                        i++;
+                    });
+    
+                    // Añadir todos los modales al final del contenedor principal
+                    document.body.appendChild(modalesContainer);
+                })
+                .catch(error => console.log("Error cargando las bebidas: ", error));
+        });
+    
         // Control del menú hamburguesa
         document.addEventListener("DOMContentLoaded", () => {
             const menuToggle = document.querySelector(".menu-toggle");
             const navLinks = document.querySelector(".nav-links");
-
+    
             menuToggle.addEventListener("click", () => {
                 navLinks.classList.toggle("active");
             });
         });
     </script>
+    
+
 </body>
 
-
-</div>
-</body>
 </html>

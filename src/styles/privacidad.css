@@ -359,11 +359,11 @@ ul li {
 
 /* Enlaces */
 a {
-    color: #222;
+    color: #4a84f0;
     text-decoration: none;
 }
 
 a:hover {
-    color: black;
+    color: #3864b6;
     text-decoration: underline;
 }

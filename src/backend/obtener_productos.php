@@ -2,12 +2,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 header('Content-Type: application/json');
+
 include 'db.php'; // Incluir la conexión a la base de datos
 
 $sql = "SELECT * FROM productos";
 $result = $conn->query($sql);
 
-$productos = array();
+$productos = [];
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
@@ -15,6 +16,6 @@ if ($result->num_rows > 0) {
     }
 }
 
-echo json_encode($productos); // Enviar los datos como JSON
+echo json_encode($productos, JSON_PRETTY_PRINT); // Enviar los datos como JSON
 $conn->close();
 ?>

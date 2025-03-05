@@ -8,6 +8,7 @@
     <title>Bite & Grill</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../styles/domicilio.css">
 </head>
 
@@ -35,45 +36,13 @@
     </header>
 
     <div class="contenedor">
-        <div class="menu">
-            <h2>Entrantes</h2>
-            <div class="item" data-name="Alitas picantes" data-price="5.00">Alitas picantes <span>5.00 €</span></div>
-            <div class="item" data-name="Tequeños" data-price="4.50">Tequeños <span>4.50 €</span></div>
-            <div class="item" data-name="Aros de cebolla" data-price="3.50">Aros de cebolla <span>3.50 €</span></div>
-            <div class="item" data-name="Tiras de pollo" data-price="6.00">Tiras de pollo <span>6.00 €</span></div>
+        <div class="menu" id="menu">
 
-            <h2>Hamburguesas</h2>
-            <div class="item" data-name="La Giralda" data-price="8.00">La Giralda <span>8.00 €</span></div>
-            <div class="item" data-name="Maestranza" data-price="9.00">Maestranza <span>9.00 €</span></div>
-            <div class="item" data-name="El Alcázar" data-price="10.00">El Alcázar <span>10.00 €</span></div>
-            <div class="item" data-name="Torre del oro" data-price="11.00">Torre del oro <span>11.00 €</span></div>
-            <div class="item" data-name="Archivo de Indias" data-price="12.00">Archivo de Indias <span>12.00 €</span>
-            </div>
-            <div class="item" data-name="Alameda" data-price="13.00">Alameda <span>13.00 €</span></div>
-
-            <h2>Ensaladas</h2>
-            <div class="item" data-name="Ensalada Mediterránea" data-price="4.50">Ensalada Mediterránea <span>4.50
-                    €</span></div>
-            <div class="item" data-name="Ensalada César" data-price="5.50">Ensalada César <span>5.50 €</span></div>
-
-            <h2>Bebidas</h2>
-            <div class="item" data-name="Refrescos" data-price="2.50">Refrescos <span>2.50 €</span></div>
-            <div class="item" data-name="Mojitos" data-price="3.50">Mojitos <span>3.50 €</span></div>
-            <div class="item" data-name="Cerveza" data-price="3.00">Cerveza <span>3.00 €</span></div>
-            <div class="item" data-name="Margaritas" data-price="4.00">Margaritas <span>4.00 €</span></div>
-
-            <h2>Postres</h2>
-            <div class="item" data-name="Tarta oreo" data-price="4.50">Tarta oreo <span>4.50 €</span></div>
-            <div class="item" data-name="Tarta galleta" data-price="4.50">Tarta galleta <span>4.50 €</span></div>
-            <div class="item" data-name="Tarta pistacho" data-price="4.50">Tarta pistacho <span>4.50 €</span></div>
-            <div class="item" data-name="Tarta chocolate" data-price="4.50">Tarta chocolate <span>4.50 €</span></div>
-            <div class="item" data-name="Tarta queso" data-price="4.50">Tarta queso <span>4.50 €</span></div>
-            <div class="item" data-name="Batidos" data-price="4.50">Batidos <span>4.50 €</span></div>
         </div>
 
         <div class="cesta">
             <h2>Cesta</h2>
-            <div id="cesta-items"></div>
+            <div id="cesta-items"></div> <!-- Contenedor de productos añadidos -->
             <p id="cesta-alerta" class="alerta-cesta" style="display: none;">⚠ No puedes pagar con la cesta vacía.</p>
             <div class="pagar">
                 <button id="pagar">Pagar (0.00 €)</button>
@@ -82,97 +51,136 @@
     </div>
 
     <script>
-        const menuItems = document.querySelectorAll('.menu .item');
-        const cestaItemsContainer = document.getElementById('cesta-items');
-        const pagarButton = document.getElementById('pagar');
-        const cestaAlerta = document.getElementById('cesta-alerta');
-
-        let total = 0;
-        const cesta = {};
-
-        function updateButtonState() {
-            if (total > 0) {
-                pagarButton.disabled = false;
-                cestaAlerta.style.display = "none"; // Oculta la alerta si hay productos
-            } else {
-                pagarButton.disabled = false; // No deshabilita, pero lanza alerta si se pulsa
-            }
-        }
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const name = item.dataset.name;
-                const price = parseFloat(item.dataset.price);
-
-                if (cesta[name]) {
-                    cesta[name].quantity += 1;
-                    cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
-                } else {
-                    const cestaItem = document.createElement('div');
-                    cestaItem.className = 'cesta-item';
-                    cestaItem.innerHTML = `
-                <span>${name}</span>
-                <button class="decrease">-</button>
-                <span class="quantity">1</span>
-                <button class="increase">+</button>
-                <span class="price">${price.toFixed(2)} €</span>
-                <button class="remove">✖</button>
-            `;
-                    cesta[name] = { price, quantity: 1, element: cestaItem };
-
-                    cestaItem.querySelector('.increase').addEventListener('click', () => {
-                        cesta[name].quantity++;
-                        updateItem(name);
-                    });
-                    cestaItem.querySelector('.decrease').addEventListener('click', () => {
-                        if (cesta[name].quantity > 1) {
-                            cesta[name].quantity--;
-                            updateItem(name);
-                        } else {
-                            removeItem(name);
-                        }
-                    });
-                    cestaItem.querySelector('.remove').addEventListener('click', () => removeItem(name));
-                    cestaItemsContainer.appendChild(cestaItem);
-                }
-
-                total += price;
-                updateTotal();
-                cestaAlerta.style.display = "none"; // 🔥 La alerta se oculta cuando añades un producto
-            });
-        });
-
-        pagarButton.addEventListener("click", () => {
-            if (total === 0) {
-                cestaAlerta.style.display = "block"; // Muestra la alerta y NO la oculta automáticamente
-            } else {
-                window.location.href = "pagar.html";
-            }
-        });
-
-        function updateItem(name) {
-            cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
-            updateTotal();
-        }
-
-        function removeItem(name) {
-            total -= cesta[name].price * cesta[name].quantity;
-            cesta[name].element.remove();
-            delete cesta[name];
-            updateTotal();
-        }
-
-        function updateTotal() {
-            total = Object.values(cesta).reduce((sum, item) => sum + item.price * item.quantity, 0);
-            pagarButton.textContent = `Pagar (${total.toFixed(2)} €)`;
-            localStorage.setItem("precioPagar", total.toFixed(2));
-
-            updateButtonState();
-        }
-
         document.addEventListener("DOMContentLoaded", () => {
-            updateButtonState();
+            const cestaItemsContainer = document.getElementById('cesta-items'); // Referencia al contenedor de la cesta
+            const pagarButton = document.getElementById('pagar');
+            const cestaAlerta = document.getElementById('cesta-alerta');
+            const cesta = {};
+            let total = 0;
+
+            // Función para actualizar el estado del botón de pagar
+            function updateButtonState() {
+                if (total > 0) {
+                    pagarButton.disabled = false;
+                    cestaAlerta.style.display = "none"; // Oculta la alerta si hay productos
+                } else {
+                    pagarButton.disabled = true; // Deshabilita el botón si no hay productos
+                    cestaAlerta.style.display = "block"; // Muestra la alerta si la cesta está vacía
+                }
+            }
+
+            fetch("../backend/obtener_productos.php")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const menuContainer = document.getElementById("menu");
+                    let categorias = {};
+
+                    console.log(data); // Para ver qué devuelve la API
+                    data.forEach(producto => {
+                        if (!categorias[producto.Categoria]) {
+                            categorias[producto.Categoria] = [];
+                        }
+                        categorias[producto.Categoria].push(producto);
+                    });
+
+                    for (let categoria in categorias) {
+                        let section = document.createElement("div");
+                        section.innerHTML = `<h2>${categoria}</h2>`;
+                        categorias[categoria].forEach(producto => {
+                            let item = document.createElement("div");
+                            item.className = "item";
+                            item.dataset.name = producto.Nombre_Producto;
+                            item.dataset.price = producto.Precio;
+                            item.innerHTML = `${producto.Nombre_Producto} <span>${producto.Precio} €</span>`;
+                            section.appendChild(item);
+                        });
+                        menuContainer.appendChild(section);
+                    }
+
+                    // Después de cargar los productos, asigna los eventos de clic
+                    const menuItems = document.querySelectorAll('.menu .item');
+                    menuItems.forEach(item => {
+                        item.addEventListener('click', () => {
+                            const name = item.dataset.name;
+                            const price = parseFloat(item.dataset.price);
+
+                            if (cesta[name]) {
+                                cesta[name].quantity += 1;
+                                cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
+                            } else {
+                                const cestaItem = document.createElement('div');
+                                cestaItem.className = 'cesta-item';
+                                cestaItem.innerHTML = `
+                            <span>${name}</span>
+                            <button class="decrease">-</button>
+                            <span class="quantity">1</span>
+                            <button class="increase">+</button>
+                            <span class="price">${price.toFixed(2)} €</span>
+                            <button class="remove">✖</button>
+                        `;
+                                cesta[name] = { price, quantity: 1, element: cestaItem };
+
+                                cestaItem.querySelector('.increase').addEventListener('click', () => {
+                                    cesta[name].quantity++;
+                                    updateItem(name);
+                                });
+                                cestaItem.querySelector('.decrease').addEventListener('click', () => {
+                                    if (cesta[name].quantity > 1) {
+                                        cesta[name].quantity--;
+                                        updateItem(name);
+                                    } else {
+                                        removeItem(name);
+                                    }
+                                });
+                                cestaItem.querySelector('.remove').addEventListener('click', () => removeItem(name));
+                                cestaItemsContainer.appendChild(cestaItem);
+                            }
+
+                            total += price;
+                            updateTotal();
+                            cestaAlerta.style.display = "none"; // 🔥 La alerta se oculta cuando añades un producto
+                        });
+                    });
+
+                })
+                .catch(error => console.error("Error al cargar productos:", error));
+
+            pagarButton.addEventListener("click", () => {
+                if (total === 0) {
+                    cestaAlerta.style.display = "block"; // Muestra la alerta y NO la oculta automáticamente
+                } else {
+                    window.location.href = "pagar.html";
+                }
+            });
+
+            function updateItem(name) {
+                cesta[name].element.querySelector('.quantity').textContent = cesta[name].quantity;
+                updateTotal();
+            }
+
+            function removeItem(name) {
+                total -= cesta[name].price * cesta[name].quantity;
+                cesta[name].element.remove();
+                delete cesta[name];
+                updateTotal();
+            }
+
+            function updateTotal() {
+                total = Object.values(cesta).reduce((sum, item) => sum + item.price * item.quantity, 0);
+                pagarButton.textContent = `Pagar (${total.toFixed(2)} €)`;
+                console.log("Total a guardar: ", total);
+                localStorage.setItem("precioPagar", total.toFixed(2));
+
+                updateButtonState();
+            }
         });
+
+
     </script>
 
     <footer>
@@ -183,7 +191,7 @@
                 <a href="../other/domicilio.html">A DOMICILIO</a>
                 <a href="../other/reserva.html">RESERVAS</a>
             </div>
-            
+
             <div>
                 <span class="title">REDES SOCIALES</span>
                 <div class="social-icons">
@@ -197,11 +205,11 @@
                         <i class="fab fa-x-twitter"></i>
                     </a>
                 </div>
-                <span class="title"> ©Bite&Grill 2025 | 
+                <span class="title"> ©Bite&Grill 2025 |
                     <a href="../other/aviso.html">Aviso Legal</a>
                 </span>
             </div>
-            
+
             <div>
                 <a href="privacidad.html">POLÍTICA DE PRIVACIDAD</a>
                 <a href="../other/cookies.html">POLÍTICA DE COOKIES</a>
